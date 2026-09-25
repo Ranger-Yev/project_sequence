@@ -4,3 +4,5 @@
 
 [node name="text_engine" type="Node2D" unique_id=944283554]
 script = ExtResource("1_ggkrs")
+
+[node name="letters" type="Node" parent="." unique_id=1733747734]
