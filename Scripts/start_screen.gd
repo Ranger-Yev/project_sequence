@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 			$"Icon".position = $"M3".position
 		else: 
 			pass
-		
+	
 	# Down
 	if Input.is_action_just_pressed("ui_up"):
 		if $"Icon".position == $"M3".position:
@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 		else: 
 			pass
 	
+	# Selector
 	if Input.is_action_just_pressed("ui_accept"):
 		if $"Icon".position == $"M1".position:
 			print("Started the game")

@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://rw3ry7y4bgyp"]
 
+
 [ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://start_screen.gd" id="1_8ssyg"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://icon.svg" id="2_nvqw7"]
+[ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://icon.svg" id="1_0vm6x"]
+[ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://Scripts/start_screen.gd" id="1_f0aww"]
+[ext_resource type="Script" uid="uid://bjk4qwirwq7yw" path="res://Scripts/open_cams.gd" id="3_se8kq"]
 
 [node name="Game Big" type="Node2D" unique_id=1381105428]
 
@@ -55,4 +59,11 @@ scale = Vector2(1.0000001, 1)
 [node name="Icon" type="Sprite2D" parent="Start Screen" unique_id=991933750]
 position = Vector2(1571.0002, -430)
 scale = Vector2(1.0000001, 1)
-texture = ExtResource("2_nvqw7")
+texture = ExtResource("1_0vm6x")
+
+[node name="Open Cams" type="Node2D" parent="." unique_id=28793955]
+script = ExtResource("3_se8kq")
+
+[node name="Camera2D" type="Camera2D" parent="Open Cams" unique_id=149479984]
+anchor_mode = 0
+zoom = Vector2(1.2, 1)
