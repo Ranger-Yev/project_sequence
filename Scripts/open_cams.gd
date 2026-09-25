@@ -1,6 +1,7 @@
 extends Node2D
 var cam_go_right = true
 var cam_go_left = false
+@onready var cam_pause = $"Cam pawse x3"
 @onready var cam = $Camera2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
