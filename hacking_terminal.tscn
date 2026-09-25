@@ -1,7 +1,3 @@
 [gd_scene format=3 uid="uid://cokatdy3b2lyp"]
 
 [node name="hacking_terminal" type="Node2D" unique_id=1315691073]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=96317570]
-offset_right = 40.0
-offset_bottom = 40.0

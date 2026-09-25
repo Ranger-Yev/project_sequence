@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfjeeeu45xv0h"
-path="res://.godot/imported/haxor_terminal.png-57f7f413cf14b7dada1053d056591d73.ctex"
+uid="uid://btvcehrge1x07"
+path="res://.godot/imported/map.png-0ad055f78e25db2ac3f855c65510d3eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://haxor_terminal.png"
-dest_files=["res://.godot/imported/haxor_terminal.png-57f7f413cf14b7dada1053d056591d73.ctex"]
+source_file="res://Art/map.png"
+dest_files=["res://.godot/imported/map.png-0ad055f78e25db2ac3f855c65510d3eb.ctex"]
 
 [params]
 
