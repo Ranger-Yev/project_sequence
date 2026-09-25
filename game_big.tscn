@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://rw3ry7y4bgyp"]
 
-[ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://icon.svg" id="1_0vm6x"]
-[ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://start_screen.gd" id="1_f0aww"]
+[ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://start_screen.gd" id="1_8ssyg"]
+[ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://icon.svg" id="2_nvqw7"]
 
-[node name="Game Bigga" type="Node2D" unique_id=1381105428]
+[node name="Game Big" type="Node2D" unique_id=1381105428]
 
 [node name="Start Screen" type="Node2D" parent="." unique_id=869070552]
 position = Vector2(134, 285)
 scale = Vector2(0.9999999, 1)
-script = ExtResource("1_f0aww")
+script = ExtResource("1_8ssyg")
 
 [node name="BG1" type="Sprite2D" parent="Start Screen" unique_id=1704701733]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(411.49994, 7.4999695)
 scale = Vector2(9.523438, 5.5703125)
-texture = ExtResource("1_0vm6x")
+texture = ExtResource("2_nvqw7")
 
 [node name="Start" type="Label" parent="Start Screen" unique_id=1490365008]
 offset_left = 77.99994
@@ -55,4 +55,4 @@ scale = Vector2(1.0000001, 1)
 [node name="Icon" type="Sprite2D" parent="Start Screen" unique_id=991933750]
 position = Vector2(1571.0002, -430)
 scale = Vector2(1.0000001, 1)
-texture = ExtResource("1_0vm6x")
+texture = ExtResource("2_nvqw7")
