@@ -580,7 +580,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"prog_type",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -672,10 +672,11 @@ animations = [{
 }],
 "loop": 1,
 "name": &"tinkle_type",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [node name="Letter" type="AnimatedSprite2D" unique_id=1408741801]
 sprite_frames = SubResource("SpriteFrames_s37yc")
 animation = &"prog_type"
+frame_progress = 0.8791596
 script = ExtResource("2_5gbsb")

@@ -6,3 +6,6 @@
 script = ExtResource("1_ggkrs")
 
 [node name="letters" type="Node" parent="." unique_id=1733747734]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1418202723]
+position = Vector2(576, 324)
