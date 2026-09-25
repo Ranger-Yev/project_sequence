@@ -19,22 +19,19 @@ var alphabet_p = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p
 #22:0, 23:0, 24:0, 25:0, 35:1, 37:0, 38:6, 42:3, 43:4, 44:4, 45:5, 46:3, 48:0,  
 #}
 
+# var dimensions = Vector2(96, 96) # character dimensions
+
 var sts = "" # sentence to spell
-var space = 60 # pixels between chars. ~180 pixels between words (space is technically a char).
-var frame = -1
 var pos = Vector2(10,100)
-var luck0 = -1
 
 func _ready() -> void:
 	sts = "wanna play a game?"
 
 func _process(delta: float) -> void:
-	frame += 1
-	if frame % 10 == 1:
-		pos.x += 96
-		var new_letter = letter.instantiate() as AnimatedSprite2D
-		new_letter.global_position = pos
-		letters.add_child(new_letter)
+	pos.x += 96
+	var new_letter = letter.instantiate() as AnimatedSprite2D
+	new_letter.global_position = pos
+	letters.add_child(new_letter)
 
 	
 func spawn_let() -> void:
