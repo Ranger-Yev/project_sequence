@@ -1,5 +1,4 @@
 extends Node2D
-var rng = RandomNumberGenerator.new()
 @onready var letters = $letters
 var letter: PackedScene = preload("res://letter.tscn")
 var alphabet_t = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
@@ -29,10 +28,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pos.x += 96
+	spawn_let(1)
+
+func spawn_let(anim: int) -> void:
 	var new_letter = letter.instantiate() as AnimatedSprite2D
 	new_letter.global_position = pos
 	letters.add_child(new_letter)
-
-	
-func spawn_let() -> void:
-	pass
+	match anim:
+		0: # tinkle_type
+			new_letter.animation = "tinkle_type"
+		1: # prog_type
+			new_letter.animation = "prog_type"
