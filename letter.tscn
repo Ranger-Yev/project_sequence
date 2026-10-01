@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://di6e0eej8okqg"]
 
-[ext_resource type="Texture2D" uid="uid://b8janef2ac365" path="res://Art/fonts/prog_type_font_sheet.png" id="1_57kop"]
+[ext_resource type="Texture2D" uid="uid://qnxh8bvpssuy" path="res://Art/fonts/prog_type_font_sprite_sheet.png" id="1_57kop"]
 [ext_resource type="Texture2D" uid="uid://dtnyjjdchah0n" path="res://Art/fonts/font.png" id="1_r6swm"]
 [ext_resource type="Script" uid="uid://d4dc2f3w6l4u8" path="res://Scripts/letter.gd" id="2_5gbsb"]
 
@@ -678,5 +678,4 @@ animations = [{
 [node name="Letter" type="AnimatedSprite2D" unique_id=1408741801]
 sprite_frames = SubResource("SpriteFrames_s37yc")
 animation = &"prog_type"
-frame_progress = 0.8791596
 script = ExtResource("2_5gbsb")
