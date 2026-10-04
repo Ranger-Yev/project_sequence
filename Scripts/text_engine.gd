@@ -46,7 +46,7 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 	for i in range(0, len(arr)):
 		if arr[i] == 412:
 			pos = start_pos + Vector2(0, 10)
-		elif alphabet_p[arr[i] % 64] == " " or alphabet_t[arr[i] % 30] == " ":
+		elif font == 1 and alphabet_p[arr[i] % 64] == " " or font == 0 and alphabet_t[arr[i] % 31] == " ":
 			pos.x += 64 * size
 		else:
 			pos.x += 96 * size
@@ -60,7 +60,7 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 					#print(len(alphabet_t)) # max char 30
 					if let > 30:
 						print("ERROR: Index out of range - Tinkle Type only has 30 characters. Dividing and using the remainder as the index.")
-						let = let % 30
+						let = let % 31
 				1: # prog_type
 					#print(len(alphabet_p)) # max char 64
 					if let > 64:
