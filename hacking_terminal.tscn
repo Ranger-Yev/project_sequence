@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://doech64if7nux" path="res://Scripts/hacking_terminal.gd" id="1_sbmf2"]
 [ext_resource type="PackedScene" uid="uid://5nbysowujrgb" path="res://text_engine.tscn" id="2_gl8d6"]
-[ext_resource type="Script" uid="uid://3s8a08m061dt" path="res://camera_2d.gd" id="3_hg6ib"]
+[ext_resource type="Script" uid="uid://3s8a08m061dt" path="res://Scripts/camera_2d.gd" id="3_hg6ib"]
 [ext_resource type="Texture2D" uid="uid://dfjeeeu45xv0h" path="res://Art/haxor_terminal.png" id="4_lymhn"]
 
 [node name="hacking_terminal" type="Node2D" unique_id=1315691073]

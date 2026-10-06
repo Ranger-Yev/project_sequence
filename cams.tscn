@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dhpafu1iu5a6a"]
+
+[ext_resource type="Script" uid="uid://bjk4qwirwq7yw" path="res://Scripts/open_cams.gd" id="1_43drd"]
+
+[node name="Open Cams" type="Node2D" unique_id=351681203]
+script = ExtResource("1_43drd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1287642936]
+offset = Vector2(96, 0)
+anchor_mode = 0
+zoom = Vector2(1.2, 1)
+
+[node name="Cam pawse x3" type="Timer" parent="." unique_id=655446485]
+wait_time = 2.0
+one_shot = true

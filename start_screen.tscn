@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b1cxtwytoygjj"]
+
+[ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://Scripts/start_screen.gd" id="1_pevhg"]
+[ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_afy8x"]
+
+[node name="Start Screen" type="Node2D" unique_id=457463805]
+scale = Vector2(0.9999999, 1)
+script = ExtResource("1_pevhg")
+
+[node name="BG1" type="Sprite2D" parent="." unique_id=1906025824]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(545.49994, 292.49997)
+scale = Vector2(9.523438, 5.5703125)
+texture = ExtResource("2_afy8x")
+
+[node name="Start" type="Label" parent="." unique_id=1560818414]
+offset_left = 211.99997
+offset_top = 29.0
+offset_right = 259.99997
+offset_bottom = 52.0
+scale = Vector2(6.1160154, 4.8960657)
+text = "START"
+metadata/_edit_use_anchors_ = true
+
+[node name="Options" type="Label" parent="." unique_id=1089950356]
+offset_left = 207.99994
+offset_top = 229.99998
+offset_right = 278.99994
+offset_bottom = 252.99998
+scale = Vector2(6.1160154, 4.8960657)
+text = "OPTIONS"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Label" parent="." unique_id=1331766269]
+offset_left = 207.99994
+offset_top = 421.99997
+offset_right = 255.99994
+offset_bottom = 444.99997
+scale = Vector2(6.1160154, 4.8960657)
+text = "QUIT"
+metadata/_edit_use_anchors_ = true
+
+[node name="M1" type="Marker2D" parent="." unique_id=563775057]
+position = Vector2(95.00001, 98)
+scale = Vector2(1.0000001, 1)
+
+[node name="M2" type="Marker2D" parent="." unique_id=149940168]
+position = Vector2(113.000015, 287)
+scale = Vector2(1.0000001, 1)
+
+[node name="M3" type="Marker2D" parent="." unique_id=1259564174]
+position = Vector2(111.000015, 493)
+scale = Vector2(1.0000001, 1)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1232856359]
+position = Vector2(1705.0002, -145)
+scale = Vector2(1.0000001, 1)
+texture = ExtResource("2_afy8x")

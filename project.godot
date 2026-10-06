@@ -13,7 +13,7 @@ config_version=5
 config/name="FNAT"
 run/main_scene="uid://rw3ry7y4bgyp"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Art/icon.svg"
 
 [display]
 

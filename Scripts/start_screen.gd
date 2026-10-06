@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 	# Selector
 	if Input.is_action_just_pressed("ui_accept"):
 		if $"Icon".position == $"M1".position:
-			print("Started the game")
+			get_tree().change_scene_to_file("res://cams.tscn")
 		elif $"Icon".position == $"M2".position:
 			pass
 		else: queue_free()
