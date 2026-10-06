@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	
 	mouse_pos = get_local_mouse_position()
 	
-	if $Camera2D.position.x <= -1:
+	if $Camera2D.position.x <= 1:
 		pass
 	elif look_left:
 		$Camera2D.position.x -= 500*delta
@@ -46,4 +46,9 @@ func _on_right_look_mouse_entered() -> void:
 
 func _on_right_look_mouse_exited() -> void:
 	look_right = false
+	pass # Replace with function body.
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://cams.tscn")
 	pass # Replace with function body.

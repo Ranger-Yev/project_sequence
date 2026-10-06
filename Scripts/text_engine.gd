@@ -122,7 +122,8 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 	#print(arr)
 	for i in range(0, len(arr)):
 		if arr[i] == 412: # if element at index i is 412, then treat it as a line break / new line.
-			pos = start_pos + Vector2(0, 10) 
+			pos = Vector2(start_pos.x, pos.y)
+			pos.y += 10
 			pos.x -= 16 * size
 		elif font == 1 and alphabet_p[arr[i] % 64] == " " or font == 0 and alphabet_t[arr[i] % 31] == " ": 
 			# if element of the alphabet at index i % length of alphabet is space (" ") then treat is a space
