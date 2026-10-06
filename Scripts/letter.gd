@@ -8,4 +8,4 @@ func get_let():
 	return itself.frame
 	
 func set_let(i: int):
-	itself.frame = i
+	itself.set_frame(i)
