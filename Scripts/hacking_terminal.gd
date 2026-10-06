@@ -11,6 +11,7 @@ var cur_zoom = Vector2(1,1)
 func _process(_delta: float) -> void:
 	if to_do == 0:
 		#sts = "Test for tinkle tewxt"
+		# spawn_let(font, string to generate, size (0.0625 is 6x6, 1 is 96x96), start position) 
 		text_engine.spawn_let(1, sts, 0.0625, start_position)
 		to_do += 1
 	
@@ -20,5 +21,12 @@ func _process(_delta: float) -> void:
 		cur_zoom -= Vector2(0.5, 0.5)
 	if cur_zoom <= Vector2.ZERO:
 		cur_zoom = Vector2(0.5,0.5)
-	print(cur_zoom)
-	camera.zoom = cur_zoom
+	#print(cur_zoom)
+	camera.zoom = cur_zoom	
+	if Input.is_action_just_pressed("S"):
+		print("s")
+		var is_letters_vis = text_engine.get_visibility()
+		if is_letters_vis:
+			text_engine.hide_unhide(0)
+		else:
+			text_engine.hide_unhide(1)

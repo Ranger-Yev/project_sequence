@@ -8,8 +8,6 @@
 [node name="hacking_terminal" type="Node2D" unique_id=1315691073]
 script = ExtResource("1_sbmf2")
 
-[node name="text_engine" parent="." unique_id=944283554 instance=ExtResource("2_gl8d6")]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=652035923]
 script = ExtResource("3_hg6ib")
 
@@ -18,3 +16,5 @@ texture = ExtResource("4_lymhn")
 
 [node name="start_of_terminal" type="Marker2D" parent="." unique_id=1949213833]
 position = Vector2(-320, -170)
+
+[node name="text_engine" parent="." unique_id=944283554 instance=ExtResource("2_gl8d6")]

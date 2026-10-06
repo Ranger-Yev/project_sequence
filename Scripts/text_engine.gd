@@ -3,10 +3,13 @@ extends Node2D
 var letter: PackedScene = preload("res://letter.tscn")
 var alphabet_t = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 "q","r","s","t","u","v","w","x","y","z","!","?","*sf*","*ff*"," "]
+
 var alphabet_p = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 "q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","!","?",
 "/","|","@","#","$","*","(",")","'", '"', "~", "\\", "<", ">", ".", ",", "[", "]", "{",
  "}", ":", ";", "_", "-", "+", "=", " "]
+
+var letters_hidden = false
 
 # var dimensions = Vector2(96, 96) # character dimensions
 
@@ -29,6 +32,16 @@ func prog_index_finder(arr: Array) -> Array:
 			#print(i, " is in the prog_type.")
 			lti.append(alphabet_p.find(arr[i]))
 	return lti
+
+func hide_unhide(state: bool) -> void:
+	letters_hidden = state
+	if letters_hidden:
+		letters.set_visible(0)
+	else:
+		letters.set_visible(1)
+
+func get_visibility() -> bool:
+	return letters_hidden
 
 func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector2) -> void: # font = index of font, let = index - 1
 	var pos = start_pos
