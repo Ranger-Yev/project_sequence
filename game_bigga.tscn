@@ -66,4 +66,4 @@ anchor_mode = 0
 zoom = Vector2(1.2, 1)
 
 [node name="Cam pawse x3" type="Timer" parent="Open Cams" unique_id=2108602335]
-wait_time = 0.5
+wait_time = 3.0

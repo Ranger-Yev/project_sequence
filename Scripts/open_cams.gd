@@ -5,12 +5,13 @@ var cam_go_left = false
 @onready var cam = $Camera2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
+	print(cam.position.x)
 	if cam_go_right:
 		if cam.position.x >= 192:
 			cam_go_left = true
@@ -22,6 +23,7 @@ func _process(delta: float) -> void:
 			cam_go_right = true
 			cam_go_left = false
 		cam.position.x -= 50*delta
+		
 		
 	
 	
