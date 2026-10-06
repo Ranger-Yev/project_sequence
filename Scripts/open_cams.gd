@@ -13,15 +13,21 @@ func _process(delta: float) -> void:
 
 	print(cam.position.x)
 	if cam_go_right:
+		if cam_pause.time_left != 0:
+			return
 		if cam.position.x >= 192:
 			cam_go_left = true
 			cam_go_right = false
+			cam_pause.start()
 		cam.position.x += 50*delta
 		
 	if cam_go_left:
+		if cam_pause.time_left != 0:
+			return
 		if cam.position.x <= 0:
 			cam_go_right = true
 			cam_go_left = false
+			cam_pause.start()
 		cam.position.x -= 50*delta
 		
 		
