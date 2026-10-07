@@ -1,8 +1,10 @@
 extends Node2D
+@onready var cam = $Camera2D
 
 var look_right = false
 var look_left = false
 var mouse_pos
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,14 +16,14 @@ func _process(delta: float) -> void:
 	
 	mouse_pos = get_local_mouse_position()
 	
-	if $Camera2D.position.x <= 1:
+	if cam.position.x <= 1:
 		pass
 	elif look_left:
-		$Camera2D.position.x -= 500*delta
-	if $Camera2D.position.x >= 96:
+		cam.position.x -= 500*delta
+	if cam.position.x >= 96:
 		pass
 	elif look_right:
-		$Camera2D.position.x += 500*delta
+		cam.position.x += 500*delta
 	else:
 		pass
 	pass

@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
-	print(cam.position.x)
+	print(cam.position.x) # Make sure to comment this out once it's not needed - YEV
 	if cam_go_right:
 		if cam_pause.time_left != 0:
 			return

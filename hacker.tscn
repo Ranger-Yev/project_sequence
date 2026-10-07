@@ -4,3 +4,8 @@
 
 [node name="hacker" type="Node2D" unique_id=406843635]
 script = ExtResource("1_ibthl")
+
+[node name="spawn_pts_timer" type="Timer" parent="." unique_id=1750358098]
+wait_time = 0.2
+
+[connection signal="timeout" from="spawn_pts_timer" to="." method="_on_spawn_pts_timer_timeout"]
