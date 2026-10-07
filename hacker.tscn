@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b25a4ngd7kv28"]
+
+[ext_resource type="Script" uid="uid://dm00tuxghasog" path="res://hacker.gd" id="1_ibthl"]
+
+[node name="hacker" type="Node2D" unique_id=406843635]
+script = ExtResource("1_ibthl")
