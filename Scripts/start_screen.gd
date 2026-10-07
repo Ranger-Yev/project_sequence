@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 	# Selector
 	if Input.is_action_just_pressed("ui_accept"):
 		if $"Icon".position == $"M1".position:
-			get_tree().change_scene_to_file("res://cams.tscn")
+			get_tree().change_scene_to_file("res://main_office.tscn")
 		elif $"Icon".position == $"M2".position:
 			pass
 		else: queue_free()

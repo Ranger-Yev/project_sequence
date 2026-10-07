@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
-	print(cam.position.x)
+	print(cam.position.x) # Make sure to comment this out once it's not needed - YEV
 	if cam_go_right:
 		if cam_pause.time_left != 0:
 			return
@@ -30,10 +30,8 @@ func _process(delta: float) -> void:
 			cam_pause.start()
 		cam.position.x -= 50*delta
 		
-		
-	
-	
-	
-	
-	
 	pass
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_office.tscn")
+	pass # Replace with function body.

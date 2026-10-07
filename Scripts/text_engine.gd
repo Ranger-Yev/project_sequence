@@ -42,6 +42,7 @@ var alphabet_p_special_chars = [[p_1w_1l, p_1w_1r, p_1w_2l], [p_2w, p_2w_1l, p_2
 # 3 - 3[0] >>> 1 left, 3[1] >>> 1 right
 var letters_hidden = false
 
+var pos = Vector2.ZERO
 # var dimensions = Vector2(96, 96) # character dimensions
 
 func tinkle_index_finder(arr: Array) -> Array:
@@ -108,7 +109,7 @@ func is_special_character(int_char: int) -> Array:
 	return [-1]
 
 func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector2, color: Color) -> void: # font = index of font, let = index - 1
-	var pos = start_pos
+	pos = start_pos
 	var arr = []
 	for i in str_to_convert: # lowercase everything
 		arr.append(i.to_lower())
@@ -122,7 +123,8 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 	#print(arr)
 	for i in range(0, len(arr)):
 		if arr[i] == 412: # if element at index i is 412, then treat it as a line break / new line.
-			pos = start_pos + Vector2(0, 10) 
+			pos = Vector2(start_pos.x, pos.y)
+			pos.y += 10
 			pos.x -= 16 * size
 		elif font == 1 and alphabet_p[arr[i] % 64] == " " or font == 0 and alphabet_t[arr[i] % 31] == " ": 
 			# if element of the alphabet at index i % length of alphabet is space (" ") then treat is a space
@@ -185,3 +187,6 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 			var new_scale = size * Vector2(1,1)
 			new_letter.scale = new_scale
 			new_letter.modulate = color
+
+func get_pos() -> Vector2:
+	return pos

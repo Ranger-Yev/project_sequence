@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dhpafu1iu5a6a"]
 
 [ext_resource type="Script" uid="uid://bjk4qwirwq7yw" path="res://Scripts/open_cams.gd" id="1_43drd"]
+[ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_vdttf"]
 
 [node name="Open Cams" type="Node2D" unique_id=351681203]
 script = ExtResource("1_43drd")
@@ -10,6 +11,28 @@ offset = Vector2(96, 0)
 anchor_mode = 0
 zoom = Vector2(1.2, 1)
 
+[node name="Button" type="Button" parent="Camera2D" unique_id=1665460483]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = 535.0
+offset_right = 1052.0
+offset_bottom = 635.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [node name="Cam pawse x3" type="Timer" parent="." unique_id=655446485]
 wait_time = 2.0
 one_shot = true
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=175665718]
+position = Vector2(617, 285)
+scale = Vector2(15.671875, 1)
+texture = ExtResource("2_vdttf")
+
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
