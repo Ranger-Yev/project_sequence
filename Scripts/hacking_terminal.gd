@@ -15,8 +15,8 @@ func _process(_delta: float) -> void:
 		#sts = "Test for tinkle tewxt"
 		# spawn_let(font, string to generate, size (0.0625 is 6x6, 1 is 96x96), start position) 
 		text_engine.spawn_let(1, sts, 0.0625, start_position, color)
-		for i in range(35, len(letters.get_children)):
-			pass
+		#for i in range(35, len(letters.get_children)):
+			#pass
 		to_do += 1
 	
 	if Input.is_action_just_pressed("Scroll_Up") and not cur_zoom > Vector2(5.5,5.5):
