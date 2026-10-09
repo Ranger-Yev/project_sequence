@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bey2idjmjlwt"]
+
+[ext_resource type="Shader" uid="uid://bqg5rt30gqpll" path="res://static_effect.gdshader" id="1_6dbed"]
+[ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_bxhoj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dbed"]
+shader = ExtResource("1_6dbed")
+
+[node name="static_effect" type="Sprite2D" unique_id=1616228656]
+material = SubResource("ShaderMaterial_6dbed")
+texture = ExtResource("2_bxhoj")
