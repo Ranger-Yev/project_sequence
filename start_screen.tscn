@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://Scripts/start_screen.gd" id="1_pevhg"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_afy8x"]
+[ext_resource type="Texture2D" uid="uid://doc1uwjdp8v3a" path="res://Art/Sprite-0001.png" id="3_afy8x"]
 
 [node name="Start Screen" type="Node2D" unique_id=457463805]
 scale = Vector2(0.9999999, 1)
@@ -9,8 +10,8 @@ script = ExtResource("1_pevhg")
 
 [node name="BG1" type="Sprite2D" parent="." unique_id=1906025824]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-position = Vector2(545.49994, 292.49997)
-scale = Vector2(9.523438, 5.5703125)
+position = Vector2(589.5001, 292.49997)
+scale = Vector2(12.507813, 5.5703125)
 texture = ExtResource("2_afy8x")
 
 [node name="Start" type="Label" parent="." unique_id=1560818414]
@@ -56,3 +57,15 @@ scale = Vector2(1.0000001, 1)
 position = Vector2(1705.0002, -145)
 scale = Vector2(1.0000001, 1)
 texture = ExtResource("2_afy8x")
+
+[node name="Scary Bro" type="Sprite2D" parent="." unique_id=930312716]
+position = Vector2(1232.0001, 307)
+scale = Vector2(4, 4)
+texture = ExtResource("3_afy8x")
+hframes = 24
+
+[node name="Special timer" type="Timer" parent="." unique_id=952084275]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Special timer" to="." method="_on_special_timer_timeout"]

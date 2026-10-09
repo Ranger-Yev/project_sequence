@@ -1,9 +1,13 @@
 extends Node2D
 
 
+@onready var icon = $Icon
+@onready var m1 = $M1
+@onready var m2 = $M2
+@onready var m3 = $M3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Icon.position = $"M1".position
+	icon.position = m1.position
 	pass
 
 
@@ -37,3 +41,11 @@ func _process(_delta: float) -> void:
 		else: queue_free()
 	
 	pass
+
+
+func _on_special_timer_timeout() -> void:
+	if randf_range(1,100) >= 90:
+		$"Scary Bro".frame = randf_range(17,24)
+	else:
+		$"Scary Bro".frame = randf_range(1,16)
+	pass # Replace with function body.
