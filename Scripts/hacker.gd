@@ -24,7 +24,7 @@ func _on_spawn_pts_timer_timeout() -> void:
 #!!!Hackers >>> Old security systems have made the base vulnerable. You have a side monitor set up to 
 #only show the hackers’ progress. Most are bumbling idiots or infighting morons. Some hackers will be 
 #emphasized in some way that makes them unique. These are dangerous ones. They deplete data over time. 
-#If not dealt with quickly they accumulate and make the data loss faster and make pop ups appear faster.
+#If not dealt with quickly they accumulate an make the data loss faster and make pop ups appear faster.
 #!!!Pop-ups >>> If at least one hacker is in the system, pop-ups will start appearing. 
 #They block portions of the hacking terminal but can be closed to make it visible again.
 #!!!Data >>> Over time hackers will extract some data. Doing completely optional minigames will get some back. 

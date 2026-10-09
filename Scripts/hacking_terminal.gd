@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 	if to_do == 0:
 		#spawn_let(font, string to generate, size (0.0625 is 6x6, 1 is 96x96), start position, color) 
 		text_engine.spawn_let(1, sts, 0.0625, start_position, color)
+
 		type(34, -1)
 		to_do += 1
 	
