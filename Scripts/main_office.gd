@@ -1,5 +1,7 @@
 extends Node2D
 @onready var cam = $Camera2D
+@onready var cam_button = $cam_button
+@onready var it = $"." # itself
 
 # hacker minigame 
 
@@ -22,13 +24,15 @@ func _process(delta: float) -> void:
 		pass
 	elif look_left:
 		cam.position.x -= 500*delta
+		cam_button.global_position.x -= 500*delta
 	if cam.position.x >= 96:
 		pass
 	elif look_right:
 		cam.position.x += 500*delta
+		cam_button.global_position.x += 500*delta
 	else:
 		pass
-	pass
+	#if it.get_children()
 
 func hacker_minigame() -> void:
 	pass
