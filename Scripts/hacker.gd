@@ -1,6 +1,7 @@
 extends Node2D
 @onready var itself = $"."
 @onready var spt = $spawn_pts_timer # Spawn points timer
+@onready var dlt = $data_loss_timer # Data loss timer
 
 var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>>, 2 <<OFFENSIVE or RETURN_TO_SENDER>>
 # 0 focuses on stopping hackers from even getting into the system, 
@@ -12,14 +13,14 @@ var hacker_spawn_points = 0
 @export var difficulty = 1
 
 func _process(delta: float) -> void:
-	
 	if spt.is_stopped() and phase == 0:
 		spt.start()
 	elif phase == 1:
 		#print("HACKER IS IN THE BASE")
 		spawn_points_modifier = 2.0
 		hacker_spawn_points = 0
-	
+		
+		
 
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
