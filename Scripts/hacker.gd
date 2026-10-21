@@ -7,21 +7,24 @@ var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>
 # 1 on getting the ones who already broke in out of the system, 
 # and 2 on going into the hacker's systems to steal the info back
 var hacker_spawn_points = 0
-var spawn_points_modifier = 1.0
-var difficulty = 1
+@export var spawn_points_modifier = 1.0
+@export var spawn_points_per_tick = 100
+@export var difficulty = 1
 
 func _process(delta: float) -> void:
+	
 	if spt.is_stopped() and phase == 0:
 		spt.start()
 	elif phase == 1:
 		#print("HACKER IS IN THE BASE")
-		pass
+		spawn_points_modifier = 2.0
+		hacker_spawn_points = 0
 	
 
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
 		print(hacker_spawn_points)
-		hacker_spawn_points += 100 * spawn_points_modifier
+		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
 		if hacker_spawn_points > 15000:
 			print("New hacker!!!")
 			phase = 1

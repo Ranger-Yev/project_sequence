@@ -1,19 +1,13 @@
 extends Node2D
 @onready var cam = $Camera2D
 @onready var cam_button = $cam_button
-@onready var it = $"." # itself
+@onready var itself = $"." 
 
 # hacker minigame 
 
 var look_right = false
 var look_left = false
 var mouse_pos
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,11 +26,6 @@ func _process(delta: float) -> void:
 		cam_button.global_position.x += 500*delta
 	else:
 		pass
-	#if it.get_children()
-
-func hacker_minigame() -> void:
-	pass
-
 
 func _on_left_look_mouse_entered() -> void:
 	look_left = true

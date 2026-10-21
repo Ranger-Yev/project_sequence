@@ -8,4 +8,8 @@ script = ExtResource("1_ibthl")
 [node name="spawn_pts_timer" type="Timer" parent="." unique_id=1750358098]
 wait_time = 0.2
 
+[node name="data_loss_timer" type="Timer" parent="." unique_id=1958724326]
+wait_time = 0.2
+
 [connection signal="timeout" from="spawn_pts_timer" to="." method="_on_spawn_pts_timer_timeout"]
+[connection signal="timeout" from="data_loss_timer" to="." method="_on_spawn_pts_timer_timeout"]
