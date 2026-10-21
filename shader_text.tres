@@ -5,27 +5,23 @@ input_name = "time"
 
 [sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_638sw"]
 
-[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xg4tk"]
-operator = 2
-
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_mfsvm"]
 expanded_output_ports = [0]
 input_name = "color"
 
 [sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_638sw"]
+default_input_values = [0, 0.0, 1, 0.2, 2, 1.0]
 
 [resource]
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(-44.523983, -140.5584)
+nodes/fragment/0/position = Vector2(-43.523308, -53.49989)
 nodes/fragment/5/node = SubResource("VisualShaderNodeInput_mlsl8")
-nodes/fragment/5/position = Vector2(-1134.2214, -230.13797)
+nodes/fragment/5/position = Vector2(-1248, -224)
 nodes/fragment/6/node = SubResource("VisualShaderNodeVectorCompose_638sw")
-nodes/fragment/6/position = Vector2(-275.14166, -157.07767)
-nodes/fragment/7/node = SubResource("VisualShaderNodeFloatOp_xg4tk")
-nodes/fragment/7/position = Vector2(-684.64014, -119.33325)
+nodes/fragment/6/position = Vector2(-274.00134, -78.9563)
 nodes/fragment/8/node = SubResource("VisualShaderNodeInput_mfsvm")
 nodes/fragment/8/position = Vector2(-1134.0828, -18.232254)
 nodes/fragment/9/node = SubResource("VisualShaderNodeClamp_638sw")
-nodes/fragment/9/position = Vector2(-478.38168, 12.277111)
-nodes/fragment/connections = PackedInt32Array(6, 0, 0, 0, 8, 3, 7, 1, 8, 2, 6, 1, 8, 1, 6, 0, 9, 0, 6, 2, 8, 3, 9, 2, 5, 0, 7, 0, 7, 0, 9, 0)
+nodes/fragment/9/position = Vector2(-568.8231, 17.162045)
+nodes/fragment/connections = PackedInt32Array(6, 0, 0, 0, 8, 2, 6, 1, 8, 1, 6, 0, 5, 0, 9, 0, 8, 3, 9, 2, 9, 0, 6, 2)
