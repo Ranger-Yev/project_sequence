@@ -8,16 +8,22 @@ var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>
 # and 2 on going into the hacker's systems to steal the info back
 var hacker_spawn_points = 0
 var spawn_points_modifier = 1.0
+var difficulty = 1
 
 func _process(delta: float) -> void:
-	if spt.is_stopped():
+	if spt.is_stopped() and phase == 0:
 		spt.start()
+	elif phase == 1:
+		print("HACKER IS IN THE BASE")
 	
 
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
 		print(hacker_spawn_points)
 		hacker_spawn_points += 100 * spawn_points_modifier
+		if hacker_spawn_points > 15000:
+			print("New hacker!!!")
+			phase = 1
 
 
 #HACKING SIDE-TERMINAL{
@@ -33,8 +39,8 @@ func _on_spawn_pts_timer_timeout() -> void:
 
 #Hackers start in the <<Breaching or Preventative>> (the phase for the player). 
 #In this phase the guard will have to use preventative measures to stop them from breaking into the system. 
-#Hackers will start adding up points every x amount of time. Do minigames that will slow down hacker 
-#accumulation of hacker points. There can be multiple hackers up to a maximum number that’s not decided yet.
+#Hackers will start adding up points every x [0.2s] amount of time. Do minigames that will slow down hacker 
+#accumulation of hacker points (modifier goes down + loses some already accumulated points). There can be multiple hackers up to a maximum number that’s not decided yet.
 
 #Once a timer reaches some decided upon number which will then spawn in an actual 
 #hacker inside the hacker terminal.
