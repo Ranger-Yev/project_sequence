@@ -71,8 +71,8 @@ autostart = true
 
 [node name="static" parent="." unique_id=796818655 instance=ExtResource("4_k1na2")]
 modulate = Color(1, 1, 1, 0.32941177)
-position = Vector2(805.0001, 398)
-scale = Vector2(4, 4)
+position = Vector2(1063.0002, 539.99994)
+scale = Vector2(1.3900003, 2.119403)
 script = null
 
 [connection signal="timeout" from="Special timer" to="." method="_on_special_timer_timeout"]

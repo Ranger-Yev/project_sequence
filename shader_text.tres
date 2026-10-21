@@ -1,33 +1,6 @@
 [gd_resource type="VisualShader" format=3 uid="uid://jlnib626bcej"]
 
-[ext_resource type="Texture2D" uid="uid://dle08ewar5v24" path="res://Art/Textures/pentagon.png" id="1_xg4tk"]
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_mlsl8"]
-expanded_output_ports = [0]
-texture = ExtResource("1_xg4tk")
-
-[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_mfsvm"]
-function = 31
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mlsl8"]
-noise_type = 3
-frequency = 0.2866
-offset = Vector3(1000, 0, 0)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xg4tk"]
-noise = SubResource("FastNoiseLite_mlsl8")
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hgb26"]
-texture = SubResource("NoiseTexture2D_xg4tk")
-
 [resource]
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(-327.7497, -40.314148)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_mlsl8")
-nodes/fragment/3/position = Vector2(-926.3561, -90.25611)
-nodes/fragment/4/node = SubResource("VisualShaderNodeFloatFunc_mfsvm")
-nodes/fragment/4/position = Vector2(-605.74054, 18.021128)
-nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_hgb26")
-nodes/fragment/5/position = Vector2(-946.7116, 347.03882)
-nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 0, 1)
+nodes/fragment/0/position = Vector2(-234.64548, 17.304197)
