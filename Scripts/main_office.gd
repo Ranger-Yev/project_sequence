@@ -1,6 +1,8 @@
 extends Node2D
 @onready var cam = $Camera2D
 
+# hacker minigame 
+
 var look_right = false
 var look_left = false
 var mouse_pos
@@ -28,7 +30,8 @@ func _process(delta: float) -> void:
 		pass
 	pass
 
-
+func hacker_minigame() -> void:
+	pass
 
 
 func _on_left_look_mouse_entered() -> void:

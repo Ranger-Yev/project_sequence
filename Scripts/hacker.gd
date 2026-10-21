@@ -14,7 +14,8 @@ func _process(delta: float) -> void:
 	if spt.is_stopped() and phase == 0:
 		spt.start()
 	elif phase == 1:
-		print("HACKER IS IN THE BASE")
+		#print("HACKER IS IN THE BASE")
+		pass
 	
 
 func _on_spawn_pts_timer_timeout() -> void:
