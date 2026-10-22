@@ -1,17 +1,16 @@
 extends Node2D
 var cam_go_right = true
 var cam_go_left = false
+var mouse_pos_cams
+@onready var cam_light = $PointLight2D
 @onready var cam_pause = $"Cam pawse x3"
 @onready var cam = $Camera2D
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
-	print(cam.position.x) # Make sure to comment this out once it's not needed - YEV
 	if cam_go_right:
 		if cam_pause.time_left != 0:
 			return

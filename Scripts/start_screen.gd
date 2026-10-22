@@ -1,10 +1,10 @@
 extends Node2D
 
-<<<<<<< HEAD
+
 @onready var scary_bro = $"Scary Bro"
-=======
+
 @onready var static_effect = $static
->>>>>>> eb8278a039475b9fc834492b5a0bce13b1e9e868
+
 @onready var icon = $Icon
 @onready var icon_timer = $"Icon timer"
 @onready var m1 = $M1
@@ -66,9 +66,9 @@ func _process(_delta: float) -> void:
 
 func _on_special_timer_timeout() -> void:
 	if randf_range(1,100) >= 90:
-		icon.frame = randf_range(32,60)
+		
 		scary_bro.frame = randf_range(17,24)
 	else:
-		icon.frame = randf_range(32,60)
+		
 		scary_bro.frame = randf_range(1,16)
 	pass # Replace with function body.
