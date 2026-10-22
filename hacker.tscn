@@ -12,4 +12,4 @@ wait_time = 0.2
 wait_time = 0.6
 
 [connection signal="timeout" from="spawn_pts_timer" to="." method="_on_spawn_pts_timer_timeout"]
-[connection signal="timeout" from="data_loss_timer" to="." method="_on_spawn_pts_timer_timeout"]
+[connection signal="timeout" from="data_loss_timer" to="." method="_on_data_loss_timer_timeout"]
