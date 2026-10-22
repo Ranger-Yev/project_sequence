@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://Scripts/start_screen.gd" id="1_pevhg"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_afy8x"]
 [ext_resource type="Texture2D" uid="uid://doc1uwjdp8v3a" path="res://Art/Sprite-0001.png" id="3_afy8x"]
+[ext_resource type="Texture2D" uid="uid://cbcahnfnhdp7c" path="res://Art/Selector.png" id="3_k1na2"]
+
+[sub_resource type="Animation" id="Animation_k1na2"]
+resource_name = "icon_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdywr"]
+_data = {
+&"icon_animation": SubResource("Animation_k1na2")
+}
 
 [node name="Start Screen" type="Node2D" unique_id=457463805]
 scale = Vector2(0.9999999, 1)
@@ -53,10 +62,11 @@ scale = Vector2(1.0000001, 1)
 position = Vector2(111.000015, 493)
 scale = Vector2(1.0000001, 1)
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1232856359]
-position = Vector2(1705.0002, -145)
-scale = Vector2(1.0000001, 1)
-texture = ExtResource("2_afy8x")
+[node name="Icon" type="Sprite2D" parent="." unique_id=1446472578]
+position = Vector2(1185.0001, 842)
+scale = Vector2(2, 2)
+texture = ExtResource("3_k1na2")
+hframes = 61
 
 [node name="Scary Bro" type="Sprite2D" parent="." unique_id=930312716]
 position = Vector2(1232.0001, 307)
@@ -67,5 +77,12 @@ hframes = 24
 [node name="Special timer" type="Timer" parent="." unique_id=952084275]
 wait_time = 0.1
 autostart = true
+
+[node name="Icon timer" type="Timer" parent="." unique_id=1957854120]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=280310880]
+root_node = NodePath("../Icon timer")
+libraries/ = SubResource("AnimationLibrary_vdywr")
 
 [connection signal="timeout" from="Special timer" to="." method="_on_special_timer_timeout"]

@@ -14,6 +14,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	
+	
 	mouse_pos = get_local_mouse_position()
 	
 	if cam.position.x <= 1:
