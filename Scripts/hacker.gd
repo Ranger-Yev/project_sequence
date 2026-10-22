@@ -40,9 +40,9 @@ func _on_data_loss_timer_timeout() -> void:
 		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
 		print("Phase 2 (1) -> ", hacker_spawn_points)
 		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
-			print("DATA LOSS")
 			if data > 30.0:
 				data -= (-1 * data) + 100 / (data - (data * 0.9))
+				print((-1 * data) + 100 / (data - (data * 0.9)), " DATA LOSS")
 			else:
 				pass
 				
