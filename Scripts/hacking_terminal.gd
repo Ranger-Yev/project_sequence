@@ -36,4 +36,4 @@ func text_hide_unhide(): # might be a bad name, not sure what else to call it th
 
 func type(start_index: int, end_index: int):
 	var all_letters = letters.get_children()
-	print(all_letters)
+	#print(all_letters)

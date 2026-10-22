@@ -1,11 +1,18 @@
 extends Node2D
 
+<<<<<<< HEAD
 @onready var scary_bro = $"Scary Bro"
+=======
+@onready var static_effect = $static
+>>>>>>> eb8278a039475b9fc834492b5a0bce13b1e9e868
 @onready var icon = $Icon
 @onready var icon_timer = $"Icon timer"
 @onready var m1 = $M1
 @onready var m2 = $M2
 @onready var m3 = $M3
+
+var frame_count = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	icon.position = m1.position
@@ -45,6 +52,16 @@ func _process(_delta: float) -> void:
 		else: queue_free()
 	
 	pass
+	frame_count += 1
+	if frame_count % 5 == 0 and frame_count != 0:
+		frame_count = 0
+		static_effect.global_position.x += 10 * randf_range(1, 10)
+		static_effect.global_position.y += 10 * randf_range(1, 4)
+	if static_effect.global_position.x > 500:
+		static_effect.global_position.x = 0
+	if static_effect.global_position.y > 125:
+		static_effect.global_position.y = 0
+
 
 
 func _on_special_timer_timeout() -> void:
