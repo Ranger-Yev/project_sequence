@@ -2,7 +2,7 @@ extends Node2D
 @onready var cam = $Camera2D
 @onready var cam_button = $cam_button
 @onready var itself = $"." 
-
+@onready var light = $PointLight2D
 # hacker minigame 
 
 var look_right = false
@@ -11,10 +11,8 @@ var mouse_pos
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	
-	
-	mouse_pos = get_local_mouse_position()
+	mouse_pos = get_global_mouse_position()
+	light.position = mouse_pos
 	
 	if cam.position.x <= 1:
 		pass

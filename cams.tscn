@@ -3,6 +3,17 @@
 [ext_resource type="Script" uid="uid://bjk4qwirwq7yw" path="res://Scripts/open_cams.gd" id="1_43drd"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_vdttf"]
 
+[sub_resource type="Gradient" id="Gradient_ia7or"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vdttf"]
+gradient = SubResource("Gradient_ia7or")
+width = 500
+height = 500
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8628472, 0.17534722)
+
 [node name="Open Cams" type="Node2D" unique_id=351681203]
 script = ExtResource("1_43drd")
 
@@ -10,6 +21,13 @@ script = ExtResource("1_43drd")
 offset = Vector2(96, 0)
 anchor_mode = 0
 zoom = Vector2(1.2, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=225447740]
+position = Vector2(622, 314.00003)
+scale = Vector2(1.278, 1.294)
+color = Color(0, 1, 0.3764706, 0.54901963)
+energy = 300.0
+texture = SubResource("GradientTexture2D_vdttf")
 
 [node name="Button" type="Button" parent="Camera2D" unique_id=1665460483]
 anchors_preset = 8
@@ -25,14 +43,31 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Cam pawse x3" type="Timer" parent="." unique_id=655446485]
 wait_time = 2.0
 one_shot = true
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=175665718]
-position = Vector2(617, 285)
-scale = Vector2(15.671875, 1)
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(617, 320.5)
+scale = Vector2(15.671875, 5.0859375)
+texture = ExtResource("2_vdttf")
+
+[node name="Icon2" type="Sprite2D" parent="Icon" unique_id=800928720]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(-12.506479, -17.597538)
+rotation = 1.0708048
+scale = Vector2(0.4149321, 0.14337507)
+skew = -0.88035524
+texture = ExtResource("2_vdttf")
+
+[node name="Icon2" type="Sprite2D" parent="Icon/Icon2" unique_id=895199161]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(88.94812, -220.29062)
+rotation = 1.7095587
+scale = Vector2(4.2320585, 0.28923103)
 texture = ExtResource("2_vdttf")
 
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
