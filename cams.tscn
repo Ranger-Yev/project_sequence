@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bjk4qwirwq7yw" path="res://Scripts/open_cams.gd" id="1_43drd"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_vdttf"]
+[ext_resource type="Texture2D" uid="uid://g5tsgtlaoly1" path="res://Art/cams_selector.png" id="3_80hud"]
+[ext_resource type="Texture2D" uid="uid://bmhgwdla5g0h1" path="res://Art/layout1.png" id="3_rg0m2"]
 
 [sub_resource type="Gradient" id="Gradient_ia7or"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -14,8 +16,26 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8628472, 0.17534722)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
+size = Vector2(98.750015, 79.99999)
+
 [node name="Open Cams" type="Node2D" unique_id=351681203]
 script = ExtResource("1_43drd")
+
+[node name="Cam pawse x3" type="Timer" parent="." unique_id=655446485]
+wait_time = 2.0
+one_shot = true
+
+[node name="BigBackground" type="Sprite2D" parent="." unique_id=175665718]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+position = Vector2(4056, 1775)
+scale = Vector2(68.10938, 32.757813)
+texture = ExtResource("2_vdttf")
+
+[node name="Layout1" type="Sprite2D" parent="BigBackground" unique_id=1258461924]
+position = Vector2(-51.10896, -44.294777)
+scale = Vector2(0.00877877, 0.018372772)
+texture = ExtResource("3_rg0m2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1287642936]
 offset = Vector2(96, 0)
@@ -35,39 +55,155 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 102.0
-offset_top = 535.0
-offset_right = 1052.0
-offset_bottom = 635.0
+offset_left = 195.99994
+offset_top = 544.0
+offset_right = 1146.0
+offset_bottom = 644.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Cam pawse x3" type="Timer" parent="." unique_id=655446485]
-wait_time = 2.0
-one_shot = true
+[node name="CamsSelector" type="Sprite2D" parent="Camera2D" unique_id=943833219]
+position = Vector2(194, 314)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_80hud")
+hframes = 16
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=175665718]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-position = Vector2(617, 320.5)
-scale = Vector2(15.671875, 5.0859375)
-texture = ExtResource("2_vdttf")
+[node name="Cam1" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1789597885]
+position = Vector2(-17.499985, -306.25)
 
-[node name="Icon2" type="Sprite2D" parent="Icon" unique_id=800928720]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-position = Vector2(-12.506479, -17.597538)
-rotation = 1.0708048
-scale = Vector2(0.4149321, 0.14337507)
-skew = -0.88035524
-texture = ExtResource("2_vdttf")
+[node name="CamButton1" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam1" unique_id=2028508627]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
 
-[node name="Icon2" type="Sprite2D" parent="Icon/Icon2" unique_id=895199161]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-position = Vector2(88.94812, -220.29062)
-rotation = 1.7095587
-scale = Vector2(4.2320585, 0.28923103)
-texture = ExtResource("2_vdttf")
+[node name="Cam2" type="Area2D" parent="Camera2D/CamsSelector" unique_id=2059680971]
+position = Vector2(94.999985, -306.25)
+
+[node name="CamButton2" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam2" unique_id=410870031]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam3" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1402921895]
+position = Vector2(-16.250004, -210)
+
+[node name="CamButton3" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam3" unique_id=2018019440]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam4" type="Area2D" parent="Camera2D/CamsSelector" unique_id=971466089]
+position = Vector2(94.999985, -210)
+
+[node name="CamButton4" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam4" unique_id=1892618897]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam5" type="Area2D" parent="Camera2D/CamsSelector" unique_id=737099111]
+position = Vector2(-16.250004, -113.750015)
+
+[node name="CamButton5" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam5" unique_id=1820902087]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam6" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1973280516]
+position = Vector2(94.999985, -115.000015)
+
+[node name="CamButton6" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam6" unique_id=829871988]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam7" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1453448320]
+position = Vector2(-16.250004, -17.50003)
+
+[node name="CamButton7" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam7" unique_id=1438294778]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam8" type="Area2D" parent="Camera2D/CamsSelector" unique_id=885534639]
+position = Vector2(94.999985, -18.75003)
+
+[node name="CamButton8" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam8" unique_id=1902668808]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam9" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1266874379]
+position = Vector2(-16.250004, 77.49997)
+
+[node name="CamButton9" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam9" unique_id=410728660]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam10" type="Area2D" parent="Camera2D/CamsSelector" unique_id=223385413]
+position = Vector2(96.249985, 78.74997)
+
+[node name="CamButton10" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam10" unique_id=1127055577]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam11" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1372435231]
+position = Vector2(-16.250004, 173.74994)
+
+[node name="CamButton11" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam11" unique_id=1457843130]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam12" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1975940769]
+position = Vector2(96.249985, 173.74994)
+
+[node name="CamButton12" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam12" unique_id=684491162]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam13" type="Area2D" parent="Camera2D/CamsSelector" unique_id=80850474]
+position = Vector2(-16.250004, 269.99994)
+
+[node name="CamButton13" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam13" unique_id=1293327660]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam14" type="Area2D" parent="Camera2D/CamsSelector" unique_id=359480084]
+position = Vector2(94.999985, 269.99994)
+
+[node name="CamButton14" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam14" unique_id=1760253091]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Cam15" type="Area2D" parent="Camera2D/CamsSelector" unique_id=1329876378]
+position = Vector2(-16.250004, 366.24994)
+
+[node name="CamButton15" type="CollisionShape2D" parent="Camera2D/CamsSelector/Cam15" unique_id=642437743]
+position = Vector2(-39.375, -29.999996)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_42brd")
 
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam1" to="." method="_on_cam_1_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam2" to="." method="_on_cam_2_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam3" to="." method="_on_cam_3_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam4" to="." method="_on_cam_4_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam5" to="." method="_on_cam_5_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam6" to="." method="_on_cam_6_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam7" to="." method="_on_cam_7_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam8" to="." method="_on_cam_8_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam9" to="." method="_on_cam_9_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam10" to="." method="_on_cam_10_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam11" to="." method="_on_cam_11_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam12" to="." method="_on_cam_12_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam13" to="." method="_on_cam_13_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam14" to="." method="_on_cam_14_input_event"]
+[connection signal="input_event" from="Camera2D/CamsSelector/Cam15" to="." method="_on_cam_15_input_event"]
