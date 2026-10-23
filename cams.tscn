@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://bjk4qwirwq7yw" path="res://Scripts/open_cams.gd" id="1_43drd"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_vdttf"]
 [ext_resource type="Texture2D" uid="uid://g5tsgtlaoly1" path="res://Art/cams_selector.png" id="3_80hud"]
-[ext_resource type="Texture2D" uid="uid://bmhgwdla5g0h1" path="res://Art/layout1.png" id="3_rg0m2"]
-[ext_resource type="Texture2D" uid="uid://ccuuuah3cvqhc" path="res://Art/layout3.png" id="4_ioxu0"]
+[ext_resource type="Texture2D" uid="uid://b0egf7bc026ey" path="res://Art/cams/Elevator_P_Cam.png" id="3_tibft"]
+[ext_resource type="Texture2D" uid="uid://b1rijxoyqa46x" path="res://Art/cams/HoA_Cam.png" id="4_0kbmt"]
+[ext_resource type="Texture2D" uid="uid://tqpt7yra350u" path="res://Art/cams/HoP_Cam.png" id="5_hdvee"]
+[ext_resource type="Texture2D" uid="uid://crkr1egyoc73m" path="res://Art/cams/Prod_Cam.png" id="6_co2ng"]
+[ext_resource type="Texture2D" uid="uid://b8hp1haujlpuu" path="res://Art/cams/Records_Cam.png" id="8_yfh2k"]
+[ext_resource type="Texture2D" uid="uid://be6ni3j3lnnlh" path="res://Art/cams/Storage_Cam.png" id="9_rukh5"]
 
 [sub_resource type="Gradient" id="Gradient_ia7or"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -29,19 +33,34 @@ one_shot = true
 
 [node name="BigBackground" type="Sprite2D" parent="." unique_id=175665718]
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
-position = Vector2(4056, 1775)
-scale = Vector2(68.10938, 32.757813)
+position = Vector2(9636, 300.75)
+scale = Vector2(156.1875, 10.144532)
 texture = ExtResource("2_vdttf")
 
-[node name="Cam1" type="Sprite2D" parent="BigBackground" unique_id=1258461924]
-position = Vector2(-51.108955, -44.294777)
-scale = Vector2(0.00877877, 0.018372772)
-texture = ExtResource("3_rg0m2")
+[node name="Cam1" type="Sprite2D" parent="." unique_id=1258461924]
+position = Vector2(576, 324)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("3_tibft")
 
-[node name="Layout3" type="Sprite2D" parent="BigBackground" unique_id=444000366]
-position = Vector2(-33.974762, -44.41688)
-scale = Vector2(0.009, 0.018)
-texture = ExtResource("4_ioxu0")
+[node name="Cam2" type="Sprite2D" parent="." unique_id=444000366]
+position = Vector2(1728, 324)
+texture = ExtResource("4_0kbmt")
+
+[node name="HoPCam" type="Sprite2D" parent="." unique_id=765963354]
+position = Vector2(2880, 324)
+texture = ExtResource("5_hdvee")
+
+[node name="ProdCam" type="Sprite2D" parent="." unique_id=2039621712]
+position = Vector2(4033, 324)
+texture = ExtResource("6_co2ng")
+
+[node name="RecordsCam" type="Sprite2D" parent="." unique_id=170096805]
+position = Vector2(5185, 324)
+texture = ExtResource("8_yfh2k")
+
+[node name="StorageCam" type="Sprite2D" parent="." unique_id=1086232391]
+position = Vector2(6337, 324)
+texture = ExtResource("9_rukh5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1287642936]
 offset = Vector2(96, 0)
