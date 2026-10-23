@@ -44,7 +44,8 @@ func _on_data_loss_timer_timeout() -> void:
 				data -= (-1 * data) + 100 / (data - (data * 0.9))
 				print((-1 * data) + 100 / (data - (data * 0.9)), " DATA LOSS")
 			else:
-				pass
+				data -= (data - 100) / (data - 39)
+				print(((data - 100) / (data - 39)), " DATA LOSS")
 				
 
 

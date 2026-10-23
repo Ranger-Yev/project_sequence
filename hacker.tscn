@@ -4,6 +4,11 @@
 
 [node name="hacker" type="Node2D" unique_id=406843635]
 script = ExtResource("1_ibthl")
+spawn_points_modifier = null
+spawn_points_per_tick = null
+difficulty = null
+start_data_debug = null
+data_loss_pts_threshold = null
 
 [node name="spawn_pts_timer" type="Timer" parent="." unique_id=1750358098]
 wait_time = 0.2
