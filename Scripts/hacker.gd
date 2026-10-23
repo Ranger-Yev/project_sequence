@@ -11,24 +11,41 @@ var hacker_spawn_points = 0
 @export var spawn_points_modifier = 1.0
 @export var spawn_points_per_tick = 100
 @export var difficulty = 1
+@export var start_data_debug = 100.0
+@export var data_loss_pts_threshold = 1000.0
+var data = start_data_debug
 
-func _process(delta: float) -> void:
-	if spt.is_stopped() and phase == 0:
+
+func _process(_delta: float) -> void:
+	if phase == 0 and spt.is_stopped():
 		spt.start()
-	elif phase == 1:
+	elif phase == 1 and dlt.is_stopped():
 		#print("HACKER IS IN THE BASE")
-		spawn_points_modifier = 2.0
-		hacker_spawn_points = 0
+		dlt.start()
 		
 		
 
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
-		print(hacker_spawn_points)
+		#print(hacker_spawn_points)
 		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
 		if hacker_spawn_points > 15000:
-			print("New hacker!!!")
+			#print("New hacker!!!")
 			phase = 1
+			spawn_points_modifier = 2.0
+			hacker_spawn_points = 0
+
+func _on_data_loss_timer_timeout() -> void:
+	if phase == 1:
+		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
+		print("Phase 2 (1) -> ", hacker_spawn_points)
+		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
+			if data > 30.0:
+				data -= (-1 * data) + 100 / (data - (data * 0.9))
+				print((-1 * data) + 100 / (data - (data * 0.9)), " DATA LOSS")
+			else:
+				pass
+				
 
 
 #HACKING SIDE-TERMINAL{
