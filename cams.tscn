@@ -91,8 +91,8 @@ size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="CamsSelector" type="Sprite2D" parent="Camera2D" unique_id=943833219]
-position = Vector2(194, 314)
-scale = Vector2(0.8, 0.8)
+position = Vector2(144, 491)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_80hud")
 hframes = 16
 
