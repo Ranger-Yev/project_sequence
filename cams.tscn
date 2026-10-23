@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_vdttf"]
 [ext_resource type="Texture2D" uid="uid://g5tsgtlaoly1" path="res://Art/cams_selector.png" id="3_80hud"]
 [ext_resource type="Texture2D" uid="uid://bmhgwdla5g0h1" path="res://Art/layout1.png" id="3_rg0m2"]
+[ext_resource type="Texture2D" uid="uid://ccuuuah3cvqhc" path="res://Art/layout3.png" id="4_ioxu0"]
 
 [sub_resource type="Gradient" id="Gradient_ia7or"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -32,10 +33,15 @@ position = Vector2(4056, 1775)
 scale = Vector2(68.10938, 32.757813)
 texture = ExtResource("2_vdttf")
 
-[node name="Layout1" type="Sprite2D" parent="BigBackground" unique_id=1258461924]
-position = Vector2(-51.10896, -44.294777)
+[node name="Cam1" type="Sprite2D" parent="BigBackground" unique_id=1258461924]
+position = Vector2(-51.108955, -44.294777)
 scale = Vector2(0.00877877, 0.018372772)
 texture = ExtResource("3_rg0m2")
+
+[node name="Layout3" type="Sprite2D" parent="BigBackground" unique_id=444000366]
+position = Vector2(-33.974762, -44.41688)
+scale = Vector2(0.009, 0.018)
+texture = ExtResource("4_ioxu0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1287642936]
 offset = Vector2(96, 0)
