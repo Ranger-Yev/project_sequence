@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dot3srhk07wmj"
-path="res://.godot/imported/layout2.png-e78e6e9325cb6227b757645260142d8d.ctex"
+uid="uid://tqpt7yra350u"
+path="res://.godot/imported/HoP_Cam.png-b4302b8f49341659b57ca30091102b3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/layout2.png"
-dest_files=["res://.godot/imported/layout2.png-e78e6e9325cb6227b757645260142d8d.ctex"]
+source_file="res://Art/cams/HoP_Cam.png"
+dest_files=["res://.godot/imported/HoP_Cam.png-b4302b8f49341659b57ca30091102b3a.ctex"]
 
 [params]
 

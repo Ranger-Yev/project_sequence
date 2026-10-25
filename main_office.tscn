@@ -6,10 +6,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
 size = Vector2(142, 648)
 
+[sub_resource type="Gradient" id="Gradient_ia7or"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_42brd"]
+gradient = SubResource("Gradient_ia7or")
+width = 750
+height = 750
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8628472, 0.17534722)
+
 [node name="main_office" type="Node2D" unique_id=1800851729]
 script = ExtResource("1_ia7or")
 
 [node name="Layout3" type="Sprite2D" parent="." unique_id=996402068]
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(576, 323.49997)
 scale = Vector2(0.6, 0.60092586)
 texture = ExtResource("2_2xuvg")
@@ -33,14 +45,28 @@ scale = Vector2(2, 1)
 position = Vector2(71, 324)
 shape = SubResource("RectangleShape2D_42brd")
 
-[node name="Button" type="Button" parent="." unique_id=1049584256]
-offset_left = 277.0
-offset_top = 548.0
-offset_right = 877.0
-offset_bottom = 648.0
+[node name="cam_button" type="Button" parent="." unique_id=1049584256]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = 547.0
+offset_right = 780.0
+offset_bottom = 647.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=557360470]
+position = Vector2(583, 323)
+scale = Vector2(0.41550004, 0.3955)
+energy = 300.0
+texture = SubResource("GradientTexture2D_42brd")
 
 [connection signal="mouse_entered" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="cam_button" to="." method="_on_button_pressed"]

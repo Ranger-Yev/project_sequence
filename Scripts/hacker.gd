@@ -1,23 +1,52 @@
 extends Node2D
 @onready var itself = $"."
 @onready var spt = $spawn_pts_timer # Spawn points timer
+@onready var dlt = $data_loss_timer # Data loss timer
 
 var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>>, 2 <<OFFENSIVE or RETURN_TO_SENDER>>
 # 0 focuses on stopping hackers from even getting into the system, 
 # 1 on getting the ones who already broke in out of the system, 
 # and 2 on going into the hacker's systems to steal the info back
 var hacker_spawn_points = 0
-var spawn_points_modifier = 1.0
+@export var spawn_points_modifier = 1.0
+@export var spawn_points_per_tick = 100
+@export var difficulty = 1
+@export var start_data_debug = 100.0
+@export var data_loss_pts_threshold = 1000.0
+var data = start_data_debug
 
-func _process(delta: float) -> void:
-	if spt.is_stopped():
+
+func _process(_delta: float) -> void:
+	if phase == 0 and spt.is_stopped():
 		spt.start()
-	
+	elif phase == 1 and dlt.is_stopped():
+		#print("HACKER IS IN THE BASE")
+		dlt.start()
+		
+		
 
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
-		print(hacker_spawn_points)
-		hacker_spawn_points += 100 * spawn_points_modifier
+		#print(hacker_spawn_points)
+		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
+		if hacker_spawn_points > 15000:
+			#print("New hacker!!!")
+			phase = 1
+			spawn_points_modifier = 2.0
+			hacker_spawn_points = 0
+
+func _on_data_loss_timer_timeout() -> void:
+	if phase == 1:
+		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
+		print("Phase 2 (1) -> ", hacker_spawn_points)
+		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
+			if data > 30.0:
+				data -= (-1 * data) + 100 / (data - (data * 0.9))
+				print((-1 * data) + 100 / (data - (data * 0.9)), " DATA LOSS")
+			else:
+				data -= (data - 100) / (data - 39)
+				print(((data - 100) / (data - 39)), " DATA LOSS")
+				
 
 
 #HACKING SIDE-TERMINAL{
@@ -33,8 +62,8 @@ func _on_spawn_pts_timer_timeout() -> void:
 
 #Hackers start in the <<Breaching or Preventative>> (the phase for the player). 
 #In this phase the guard will have to use preventative measures to stop them from breaking into the system. 
-#Hackers will start adding up points every x amount of time. Do minigames that will slow down hacker 
-#accumulation of hacker points. There can be multiple hackers up to a maximum number that’s not decided yet.
+#Hackers will start adding up points every x [0.2s] amount of time. Do minigames that will slow down hacker 
+#accumulation of hacker points (modifier goes down + loses some already accumulated points). There can be multiple hackers up to a maximum number that’s not decided yet.
 
 #Once a timer reaches some decided upon number which will then spawn in an actual 
 #hacker inside the hacker terminal.

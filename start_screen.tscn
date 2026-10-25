@@ -3,6 +3,24 @@
 [ext_resource type="Script" uid="uid://b26um1er6nsa" path="res://Scripts/start_screen.gd" id="1_pevhg"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_afy8x"]
 [ext_resource type="Texture2D" uid="uid://doc1uwjdp8v3a" path="res://Art/Sprite-0001.png" id="3_afy8x"]
+[ext_resource type="PackedScene" uid="uid://p50x5rp412vk" path="res://static.tscn" id="5_vdywr"]
+
+[sub_resource type="Animation" id="Animation_k1na2"]
+resource_name = "icon_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdywr"]
+_data = {
+&"icon_animation": SubResource("Animation_k1na2")
+}
+
+[sub_resource type="Gradient" id="Gradient_k1na2"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_42brd"]
+gradient = SubResource("Gradient_k1na2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8142361, 0.17534722)
 
 [node name="Start Screen" type="Node2D" unique_id=457463805]
 scale = Vector2(0.9999999, 1)
@@ -53,11 +71,6 @@ scale = Vector2(1.0000001, 1)
 position = Vector2(111.000015, 493)
 scale = Vector2(1.0000001, 1)
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1232856359]
-position = Vector2(1705.0002, -145)
-scale = Vector2(1.0000001, 1)
-texture = ExtResource("2_afy8x")
-
 [node name="Scary Bro" type="Sprite2D" parent="." unique_id=930312716]
 position = Vector2(1232.0001, 307)
 scale = Vector2(4, 4)
@@ -67,5 +80,22 @@ hframes = 24
 [node name="Special timer" type="Timer" parent="." unique_id=952084275]
 wait_time = 0.1
 autostart = true
+
+[node name="Icon timer" type="Timer" parent="." unique_id=1957854120]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=280310880]
+root_node = NodePath("../Icon timer")
+libraries/ = SubResource("AnimationLibrary_vdywr")
+
+[node name="static" parent="." unique_id=796818655 instance=ExtResource("5_vdywr")]
+position = Vector2(941.0001, 656)
+scale = Vector2(1.4145001, 3.041791)
+
+[node name="Icon" type="PointLight2D" parent="." unique_id=1496985331]
+color = Color(0.91764706, 0, 0, 0.015686275)
+energy = 300.0
+texture = SubResource("GradientTexture2D_42brd")
+texture_scale = 1.75
 
 [connection signal="timeout" from="Special timer" to="." method="_on_special_timer_timeout"]

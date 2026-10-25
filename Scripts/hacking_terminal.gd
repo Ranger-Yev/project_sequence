@@ -9,12 +9,11 @@ var color =  Color(0.978, 0.667, 0.521, 1.0)
 
 var cur_zoom = Vector2(1,1)
 
-
 func _process(_delta: float) -> void:
 	if to_do == 0:
 		#spawn_let(font, string to generate, size (0.0625 is 6x6, 1 is 96x96), start position, color) 
 		text_engine.spawn_let(1, sts, 0.0625, start_position, color)
-
+		
 		type(34, -1)
 		to_do += 1
 	
@@ -25,7 +24,7 @@ func _process(_delta: float) -> void:
 	if cur_zoom <= Vector2.ZERO:
 		cur_zoom = Vector2(0.5,0.5)
 	#print(cur_zoom)
-	camera.zoom = cur_zoom	
+	camera.zoom = cur_zoom
 
 func text_hide_unhide(): # might be a bad name, not sure what else to call it though
 	var is_letters_vis = text_engine.get_visibility()
@@ -36,4 +35,4 @@ func text_hide_unhide(): # might be a bad name, not sure what else to call it th
 
 func type(start_index: int, end_index: int):
 	var all_letters = letters.get_children()
-	print(all_letters)
+	#print(all_letters)
