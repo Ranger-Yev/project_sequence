@@ -14,6 +14,7 @@ var hacker_spawn_points = 0
 @export var start_data_debug = 100.0
 @export var data_loss_pts_threshold = 1000.0
 var data = start_data_debug
+var data_loss = 0
 
 
 func _process(_delta: float) -> void:
@@ -40,14 +41,21 @@ func _on_data_loss_timer_timeout() -> void:
 		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
 		print("Phase 2 (1) -> ", hacker_spawn_points)
 		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
+			print(data)
 			if data > 30.0:
-				data -= (-1 * data) + 100 / (data - (data * 0.9))
-				print((-1 * data) + 100 / (data - (data * 0.9)), " DATA LOSS")
+				data_loss = round_to_dec((data / 30) * ((difficulty * 0.1) + 1), 2)
+				print("Above 30.0 ", data_loss)
+				data -= data_loss
+			elif data < 30.0 and data > 0.0:
+				data_loss = round_to_dec((data / 40) * ((difficulty * 0.1) + 1), 2)
+				print("Below 30.0 and above 0.0 ", data_loss)
+				data -= data_loss
 			else:
-				data -= (data - 100) / (data - 39)
-				print(((data - 100) / (data - 39)), " DATA LOSS")
+				data = 0.0 
+			hacker_spawn_points = 0.0
 				
-
+func round_to_dec(num, digit: int):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)
 
 #HACKING SIDE-TERMINAL{
 #!!!Hackers >>> Old security systems have made the base vulnerable. You have a side monitor set up to 
