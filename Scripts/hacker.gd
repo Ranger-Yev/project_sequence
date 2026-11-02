@@ -2,6 +2,7 @@ extends Node2D
 @onready var itself = $"."
 @onready var spt = $spawn_pts_timer # Spawn points timer
 @onready var dlt = $data_loss_timer # Data loss timer
+@onready var pop_up = $pop_ups # pop_up Sprite2D
 
 var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>>, 2 <<OFFENSIVE or RETURN_TO_SENDER>>
 # 0 focuses on stopping hackers from even getting into the system, 
@@ -18,14 +19,12 @@ var data_loss = 0
 
 
 func _process(_delta: float) -> void:
-	if phase == 0 and spt.is_stopped():
+	if spt.is_stopped():
 		spt.start()
-	elif phase == 1 and dlt.is_stopped():
+	if dlt.is_stopped():
 		#print("HACKER IS IN THE BASE")
 		dlt.start()
 		
-		
-
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
 		#print(hacker_spawn_points)
@@ -35,6 +34,11 @@ func _on_spawn_pts_timer_timeout() -> void:
 			phase = 1
 			spawn_points_modifier = 2.0
 			hacker_spawn_points = 0
+	elif phase == 1:
+		var chance = randi_range(1,100)
+		print(chance)
+		if chance in range(50, 50 + difficulty):
+			pop_up.visible = true
 
 func _on_data_loss_timer_timeout() -> void:
 	if phase == 1:
@@ -50,7 +54,7 @@ func _on_data_loss_timer_timeout() -> void:
 				data_loss = round_to_dec((data / 40) * ((difficulty * 0.1) + 1), 2)
 				print("Below 30.0 and above 0.0 ", data_loss)
 				data -= data_loss
-			else:
+			elif data < 0.0:
 				data = 0.0 
 			hacker_spawn_points = 0.0
 				

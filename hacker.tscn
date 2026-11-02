@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b25a4ngd7kv28"]
 
 [ext_resource type="Script" uid="uid://8osxuppbvdmr" path="res://Scripts/hacker.gd" id="1_ibthl"]
+[ext_resource type="Texture2D" uid="uid://cncxwq5442t2f" path="res://Art/ad_1.png" id="2_0xj6b"]
 
 [node name="hacker" type="Node2D" unique_id=406843635]
 script = ExtResource("1_ibthl")
@@ -10,6 +11,11 @@ wait_time = 0.2
 
 [node name="data_loss_timer" type="Timer" parent="." unique_id=1958724326]
 wait_time = 0.6
+
+[node name="pop_ups" type="Sprite2D" parent="." unique_id=1873359532]
+visible = false
+position = Vector2(345, 191)
+texture = ExtResource("2_0xj6b")
 
 [connection signal="timeout" from="spawn_pts_timer" to="." method="_on_spawn_pts_timer_timeout"]
 [connection signal="timeout" from="data_loss_timer" to="." method="_on_data_loss_timer_timeout"]
