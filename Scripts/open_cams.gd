@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 			print(cam_light.position.x)
 			cam_light.position.x += 100 * delta
 	
+	if $".".visible: cam.make_current()
 	
 	if cam_go_right:
 		if cam_pause.time_left != 0:
@@ -45,6 +46,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_pressed() -> void:
+	$"../main_office".visible = true
 	$".".visible = false
 	pass 
 

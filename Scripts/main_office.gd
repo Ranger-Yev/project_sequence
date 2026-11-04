@@ -15,6 +15,8 @@ func _process(delta: float) -> void:
 	mouse_pos = get_global_mouse_position()
 	light.position = mouse_pos
 	
+	if $".".visible: cam.make_current()
+	
 	if cam.position.x <= 1:
 		pass
 	elif look_left:
@@ -52,12 +54,15 @@ func _on_right_look_mouse_exited() -> void:
 
 
 func _on_button_pressed() -> void:
+	$"../Open Cams".visible = true
 	$".".visible = false
 	pass # Replace with function body.
 
 
 func _on_lights_off_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if layout3.modulate != Vector4(0.01,0.01,0.01,1):
-		layout3.modulate = Vector4(0.01,0.01,0.01,1)
-	else:
-		layout3.modulate = Vector4(1,1,1,1)
+	if Input.is_action_just_pressed("Click"):
+		if layout3.modulate != Color(0.01,0.01,0.01,1):
+			layout3.modulate = Color(0.01,0.01,0.01,1)
+		else:
+			layout3.modulate = Color(1,1,1,1)
+	else: pass

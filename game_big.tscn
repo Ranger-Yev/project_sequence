@@ -8,6 +8,7 @@
 script = ExtResource("1_7npu2")
 
 [node name="main_office" parent="." unique_id=1800851729 instance=ExtResource("2_nvqw7")]
+position = Vector2(1, -1)
 
 [node name="Open Cams" parent="." unique_id=351681203 instance=ExtResource("3_ehmcx")]
 visible = false
