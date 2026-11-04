@@ -20,7 +20,7 @@ width = 500
 height = 500
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.8072917, 0.8836806)
+fill_to = Vector2(0.015625, 0.5364583)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
 size = Vector2(98.750015, 79.99999)
@@ -75,11 +75,12 @@ anchor_mode = 0
 zoom = Vector2(1.2, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=225447740]
-position = Vector2(622, 314.00003)
-scale = Vector2(1.278, 1.294)
+position = Vector2(602, 318)
+scale = Vector2(0.5, 0.5)
 color = Color(4.5950737, 16.074999, 8.539098, 0.050980393)
-energy = 20.0
+energy = 72.05
 texture = SubResource("GradientTexture2D_vdttf")
+texture_scale = 1.93
 
 [node name="CamButton" type="Sprite2D" parent="Camera2D" unique_id=685353951]
 position = Vector2(576, 595)
