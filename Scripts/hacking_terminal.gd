@@ -36,10 +36,16 @@ func text_hide_unhide(): # might be a bad name, not sure what else to call it th
 	else:
 		text_engine.hide_unhide(1)
 
-func type(start_index: int, end_index: int):
-	var all_letters = letters.get_children()
+func type_d(start_index: int, end_index: int): # default wpm settings
+	var cpm = 47 * 5
+	var lcpm = cpm - 40
+	var hcpm = cpm + 40
+	
+
+func type(start_index: int, end_index: int, lower_speed: float, mid_speed: float, higher_speed: float): # speed = words per minute converted to characters per minute
+		var all_letters = letters.get_children()
 	#print(all_letters)
 
-
+#hacker enemies
 func _on_hacker_spawn_timer_timeout() -> void:
 	pass # Replace with function body.

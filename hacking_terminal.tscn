@@ -18,3 +18,8 @@ texture = ExtResource("4_lymhn")
 position = Vector2(-320, -170)
 
 [node name="text_engine" parent="." unique_id=944283554 instance=ExtResource("2_gl8d6")]
+
+[node name="hacker_spawn_timer" type="Timer" parent="." unique_id=818871533]
+wait_time = 10.0
+
+[connection signal="timeout" from="hacker_spawn_timer" to="." method="_on_hacker_spawn_timer_timeout"]
