@@ -1,7 +1,9 @@
 extends Node2D
 
-@onready var hacker_scene = "res://hacker.tscn"
+var hacker_scene: PackedScene = preload("res://hacker.tscn")
 
+@onready var hackers = $hackers
+@onready var timer = $hacker_spawn_timer
 @onready var letters = $text_engine/letters
 @onready var text_engine = $text_engine
 @onready var camera = $Camera2D
@@ -17,8 +19,10 @@ func _process(_delta: float) -> void:
 		#spawn_let(font, string to generate, size (0.0625 is 6x6, 1 is 96x96), start position, color) 
 		text_engine.spawn_let(1, sts, 0.0625, start_position, color)
 		
-		type(34, -1)
 		to_do += 1
+	
+	if timer.is_stopped():
+		timer.start()
 	
 	if Input.is_action_just_pressed("Scroll_Up") and not cur_zoom > Vector2(5.5,5.5):
 		cur_zoom += Vector2(0.5, 0.5)
@@ -28,6 +32,10 @@ func _process(_delta: float) -> void:
 		cur_zoom = Vector2(0.5,0.5)
 	#print(cur_zoom)
 	camera.zoom = cur_zoom
+	
+	if !(hackers.get_children() == []):
+		
+		print(hackers.get_children())
 
 func text_hide_unhide(): # might be a bad name, not sure what else to call it though
 	var is_letters_vis = text_engine.get_visibility()
@@ -36,16 +44,12 @@ func text_hide_unhide(): # might be a bad name, not sure what else to call it th
 	else:
 		text_engine.hide_unhide(1)
 
-func type_d(start_index: int, end_index: int): # default wpm settings
-	var cpm = 47 * 5
-	var lcpm = cpm - 40
-	var hcpm = cpm + 40
-	
-
-func type(start_index: int, end_index: int, lower_speed: float, mid_speed: float, higher_speed: float): # speed = words per minute converted to characters per minute
-		var all_letters = letters.get_children()
-	#print(all_letters)
-
 #hacker enemies
 func _on_hacker_spawn_timer_timeout() -> void:
-	pass # Replace with function body.
+	var random = randi_range(1,100)
+	if random > 77:
+		var hacker_new_instance = hacker_scene.instantiate() as Node2D
+		hackers.add_child(hacker_new_instance)
+
+func round_to_dec(num, digit: int):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)

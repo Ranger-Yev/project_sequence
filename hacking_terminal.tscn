@@ -22,4 +22,6 @@ position = Vector2(-320, -170)
 [node name="hacker_spawn_timer" type="Timer" parent="." unique_id=818871533]
 wait_time = 10.0
 
+[node name="hackers" type="Node2D" parent="." unique_id=1848749011]
+
 [connection signal="timeout" from="hacker_spawn_timer" to="." method="_on_hacker_spawn_timer_timeout"]

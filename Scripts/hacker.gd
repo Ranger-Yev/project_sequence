@@ -3,6 +3,8 @@ extends Node2D
 @onready var spt = $spawn_pts_timer # Spawn points timer
 @onready var dlt = $data_loss_timer # Data loss timer
 @onready var pop_up = $pop_ups # pop_up Sprite2D
+@onready var parent = null
+@onready var pap = null # parent of parent (hacking terminal should be default)
 
 var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>>, 2 <<OFFENSIVE or RETURN_TO_SENDER>>
 # 0 focuses on stopping hackers from even getting into the system, 
@@ -16,14 +18,24 @@ var hacker_spawn_points = 0
 @export var data_loss_pts_threshold = 1000.0
 var data = start_data_debug
 var data_loss = 0
-
+var check_for_parents = 0
 
 func _process(_delta: float) -> void:
-	if spt.is_stopped():
-		spt.start()
-	if dlt.is_stopped():
-		#print("HACKER IS IN THE BASE")
-		dlt.start()
+	if !check_for_parents:
+		if itself.get_parent().name == "hackers":
+			parent = itself.get_parent()
+			print(parent.name)
+			pap = parent.get_parent()
+			
+		check_for_parents = 1
+	if parent != null:
+		if spt.is_stopped():
+			spt.start()
+		if dlt.is_stopped():
+			#print("HACKER IS IN THE BASE")
+			dlt.start()
+	else:
+		print("No parent found, shutting down.")
 		
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
@@ -41,25 +53,24 @@ func _on_spawn_pts_timer_timeout() -> void:
 			pop_up.visible = true
 
 func _on_data_loss_timer_timeout() -> void:
-	if phase == 1:
+	if phase == 1 and parent != null:
 		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
 		print("Phase 2 (1) -> ", hacker_spawn_points)
 		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
 			print(data)
 			if data > 30.0:
-				data_loss = round_to_dec((data / 30) * ((difficulty * 0.1) + 1), 2)
+				data_loss = pap.round_to_dec((data / 30) * ((difficulty * 0.1) + 1), 2)
 				print("Above 30.0 ", data_loss)
 				data -= data_loss
 			elif data < 30.0 and data > 0.0:
-				data_loss = round_to_dec((data / 40) * ((difficulty * 0.1) + 1), 2)
+				data_loss = pap.round_to_dec((data / 40) * ((difficulty * 0.1) + 1), 2)
 				print("Below 30.0 and above 0.0 ", data_loss)
 				data -= data_loss
 			elif data < 0.0:
 				data = 0.0 
 			hacker_spawn_points = 0.0
 				
-func round_to_dec(num, digit: int):
-	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+
 
 #HACKING SIDE-TERMINAL{
 #!!!Hackers >>> Old security systems have made the base vulnerable. You have a side monitor set up to 

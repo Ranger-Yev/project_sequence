@@ -181,7 +181,7 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 				1: # prog_type
 					#print(len(alphabet_p)) # max char 64
 					if let > 64:
-						print("ERROR: Index out of range - Prog Type only has 64 characters. Dividing and using the remainder as the index.")
+						print("ERROR: Index out of range - Prog Type only has 63 characters. Dividing and using the remainder as the index.")
 						let = let % 63
 			new_letter.frame = let
 			var new_scale = size * Vector2(1,1)
