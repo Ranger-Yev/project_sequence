@@ -5,7 +5,7 @@ var mouse_pos_cams
 var current_camera_number = 0
 var actual_current_camera
 var cam_size_number = 1152
-@onready var cam_light = $PointLight2D
+@onready var cam_light = $Camera2D/Light
 @onready var cam_pause = $"Cam pawse x3"
 @onready var cam = $Camera2D
 @onready var cam_selector = $Camera2D/CamsSelector
@@ -14,6 +14,14 @@ var cam_size_number = 1152
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	actual_current_camera = current_camera_number * cam_size_number
+	if cam_light.position.x > -180:
+		if Input.is_action_pressed("ui_left"):
+			print(cam_light.position.x)
+			cam_light.position.x -= 100 * delta
+	if cam_light.position.x < 180:
+		if Input.is_action_pressed("ui_right"):
+			print(cam_light.position.x)
+			cam_light.position.x += 100 * delta
 	
 	
 	if cam_go_right:
@@ -37,7 +45,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_office.tscn")
+	$".".visible = false
 	pass 
 
 

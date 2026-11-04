@@ -46,7 +46,7 @@ func _process(_delta: float) -> void:
 	# Selector
 	if Input.is_action_just_pressed("ui_accept"):
 		if icon.position == m1.position:
-			get_tree().change_scene_to_file("res://main_office.tscn")
+			get_tree().change_scene_to_file("res://game_big.tscn")
 		elif icon.position == m2.position:
 			pass
 		else: queue_free()

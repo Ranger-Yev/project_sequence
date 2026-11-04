@@ -3,6 +3,7 @@ extends Node2D
 @onready var cam_button = $cam_button
 @onready var itself = $"." 
 @onready var light = $PointLight2D
+@onready var layout3 = $Layout3
 # hacker minigame 
 
 var look_right = false
@@ -26,6 +27,9 @@ func _process(delta: float) -> void:
 		cam_button.global_position.x += 500*delta
 	else:
 		pass
+	
+	
+	
 
 func _on_left_look_mouse_entered() -> void:
 	look_left = true
@@ -48,5 +52,12 @@ func _on_right_look_mouse_exited() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://cams.tscn")
+	$".".visible = false
 	pass # Replace with function body.
+
+
+func _on_lights_off_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if layout3.modulate != Vector4(0.01,0.01,0.01,1):
+		layout3.modulate = Vector4(0.01,0.01,0.01,1)
+	else:
+		layout3.modulate = Vector4(1,1,1,1)

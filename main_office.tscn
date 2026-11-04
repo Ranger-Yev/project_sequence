@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
 size = Vector2(142, 648)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak182"]
+size = Vector2(68, 71)
+
 [sub_resource type="Gradient" id="Gradient_ia7or"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -21,7 +24,7 @@ fill_to = Vector2(0.8628472, 0.17534722)
 script = ExtResource("1_ia7or")
 
 [node name="Layout3" type="Sprite2D" parent="." unique_id=996402068]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+modulate = Color(0.012617188, 0.012617188, 0.012504921, 1)
 position = Vector2(576, 323.49997)
 scale = Vector2(0.6, 0.60092586)
 texture = ExtResource("2_2xuvg")
@@ -44,6 +47,12 @@ scale = Vector2(2, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Right_Look" unique_id=1513813974]
 position = Vector2(71, 324)
 shape = SubResource("RectangleShape2D_42brd")
+
+[node name="Lights_Off" type="Area2D" parent="Camera2D" unique_id=1571317325]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Lights_Off" unique_id=1707694162]
+position = Vector2(1009, 326)
+shape = SubResource("RectangleShape2D_ak182")
 
 [node name="cam_button" type="Button" parent="." unique_id=1049584256]
 anchors_preset = 8
@@ -69,4 +78,5 @@ texture = SubResource("GradientTexture2D_42brd")
 [connection signal="mouse_exited" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_exited"]
+[connection signal="input_event" from="Camera2D/Lights_Off" to="." method="_on_lights_off_input_event"]
 [connection signal="pressed" from="cam_button" to="." method="_on_button_pressed"]

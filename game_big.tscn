@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://rw3ry7y4bgyp"]
 
 [ext_resource type="Script" uid="uid://5n8y6nht8f7q" path="res://Scripts/game_big.gd" id="1_7npu2"]
+[ext_resource type="PackedScene" uid="uid://dgbifwr0c2qmq" path="res://main_office.tscn" id="2_nvqw7"]
+[ext_resource type="PackedScene" uid="uid://dhpafu1iu5a6a" path="res://cams.tscn" id="3_ehmcx"]
 
 [node name="Game Big" type="Node2D" unique_id=1381105428]
 script = ExtResource("1_7npu2")
+
+[node name="main_office" parent="." unique_id=1800851729 instance=ExtResource("2_nvqw7")]
+
+[node name="Open Cams" parent="." unique_id=351681203 instance=ExtResource("3_ehmcx")]
+visible = false
+
+[node name="Night Timer" type="Timer" parent="." unique_id=1779480743]
+wait_time = 180.0
+autostart = true
