@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bjk4qwirwq7yw" path="res://Scripts/open_cams.gd" id="1_43drd"]
 [ext_resource type="Texture2D" uid="uid://dt5ashb2i6kxc" path="res://Art/Big-background.png" id="2_0kbmt"]
+[ext_resource type="Texture2D" uid="uid://c1r7lj8b0n2kx" path="res://Art/cams/Elevator_P_Cam-sheet.png" id="3_0kbmt"]
 [ext_resource type="Texture2D" uid="uid://g5tsgtlaoly1" path="res://Art/cams_selector.png" id="3_80hud"]
-[ext_resource type="Texture2D" uid="uid://b0egf7bc026ey" path="res://Art/cams/Elevator_P_Cam.png" id="3_tibft"]
 [ext_resource type="Texture2D" uid="uid://b1rijxoyqa46x" path="res://Art/cams/HoA_Cam.png" id="4_0kbmt"]
 [ext_resource type="Texture2D" uid="uid://tqpt7yra350u" path="res://Art/cams/HoP_Cam.png" id="5_hdvee"]
 [ext_resource type="Texture2D" uid="uid://crkr1egyoc73m" path="res://Art/cams/Prod_Cam.png" id="6_co2ng"]
@@ -20,7 +20,7 @@ width = 500
 height = 500
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.015625, 0.5364583)
+fill_to = Vector2(1, 0.502)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
 size = Vector2(98.750015, 79.99999)
@@ -39,33 +39,35 @@ scale = Vector2(156.1875, 10.144532)
 texture = ExtResource("2_0kbmt")
 
 [node name="Cam1" type="Sprite2D" parent="." unique_id=1258461924]
-modulate = Color(1, 1, 1, 0.078431375)
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(576, 324)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("3_tibft")
+texture = ExtResource("3_0kbmt")
+hframes = 4
+frame = 3
 
 [node name="Cam2" type="Sprite2D" parent="." unique_id=444000366]
-modulate = Color(1, 1, 1, 0.078431375)
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(1728, 324)
 texture = ExtResource("4_0kbmt")
 
 [node name="HoPCam" type="Sprite2D" parent="." unique_id=765963354]
-modulate = Color(1, 1, 1, 0.078431375)
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(2880, 324)
 texture = ExtResource("5_hdvee")
 
 [node name="ProdCam" type="Sprite2D" parent="." unique_id=2039621712]
-modulate = Color(1, 1, 1, 0.078431375)
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(4033, 324)
 texture = ExtResource("6_co2ng")
 
 [node name="RecordsCam" type="Sprite2D" parent="." unique_id=170096805]
-modulate = Color(1, 1, 1, 0.078431375)
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(5185, 324)
 texture = ExtResource("8_yfh2k")
 
 [node name="StorageCam" type="Sprite2D" parent="." unique_id=1086232391]
-modulate = Color(1, 1, 1, 0.078431375)
+modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(6337, 324)
 texture = ExtResource("9_rukh5")
 
@@ -74,11 +76,15 @@ offset = Vector2(96, 0)
 anchor_mode = 0
 zoom = Vector2(1.2, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=225447740]
+[node name="Light" type="Node2D" parent="Camera2D" unique_id=1543633609]
+
+[node name="PointLight2D" type="PointLight2D" parent="Camera2D/Light" unique_id=225447740]
 position = Vector2(602, 318)
 scale = Vector2(0.5, 0.5)
 color = Color(4.5950737, 16.074999, 8.539098, 0.050980393)
 energy = 72.05
+shadow_enabled = true
+shadow_color = Color(0, 0, 1, 0)
 texture = SubResource("GradientTexture2D_vdttf")
 texture_scale = 1.93
 

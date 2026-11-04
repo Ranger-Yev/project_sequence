@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3obtvocqat3v" path="res://Scripts/main_office.gd" id="1_ia7or"]
 [ext_resource type="Texture2D" uid="uid://ccuuuah3cvqhc" path="res://Art/layout3.png" id="2_2xuvg"]
+[ext_resource type="Texture2D" uid="uid://6vwwvp1i3p1b" path="res://Art/Cam-button.png" id="3_2xuvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
 size = Vector2(142, 648)
@@ -17,11 +18,14 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8628472, 0.17534722)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak182"]
+size = Vector2(79, 92.5)
+
 [node name="main_office" type="Node2D" unique_id=1800851729]
 script = ExtResource("1_ia7or")
 
 [node name="Layout3" type="Sprite2D" parent="." unique_id=996402068]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
+modulate = Color(0.012617188, 0.012617188, 0.012504921, 1)
 position = Vector2(576, 323.49997)
 scale = Vector2(0.6, 0.60092586)
 texture = ExtResource("2_2xuvg")
@@ -46,27 +50,41 @@ position = Vector2(71, 324)
 shape = SubResource("RectangleShape2D_42brd")
 
 [node name="cam_button" type="Button" parent="." unique_id=1049584256]
+show_behind_parent = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 180.0
-offset_top = 547.0
-offset_right = 780.0
-offset_bottom = 647.0
+offset_left = 837.0
+offset_top = 647.0
+offset_right = 1345.0
+offset_bottom = 755.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 3.1415927
 size_flags_horizontal = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=557360470]
-position = Vector2(583, 323)
+position = Vector2(565.00006, 340)
 scale = Vector2(0.41550004, 0.3955)
 energy = 300.0
 texture = SubResource("GradientTexture2D_42brd")
+
+[node name="CamButton" type="Sprite2D" parent="." unique_id=1560244763]
+position = Vector2(575, 598)
+rotation = 3.1415927
+texture = ExtResource("3_2xuvg")
+
+[node name="Lights_Off" type="Area2D" parent="." unique_id=1571317325]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights_Off" unique_id=1707694162]
+position = Vector2(932.5, 455.25)
+shape = SubResource("RectangleShape2D_ak182")
 
 [connection signal="mouse_entered" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_exited"]
 [connection signal="mouse_entered" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_exited"]
 [connection signal="pressed" from="cam_button" to="." method="_on_button_pressed"]
+[connection signal="input_event" from="Lights_Off" to="." method="_on_lights_off_input_event"]
