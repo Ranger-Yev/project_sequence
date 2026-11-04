@@ -1,4 +1,7 @@
 extends Node2D
+
+@onready var hacker_scene = "res://hacker.tscn"
+
 @onready var letters = $text_engine/letters
 @onready var text_engine = $text_engine
 @onready var camera = $Camera2D
@@ -36,3 +39,7 @@ func text_hide_unhide(): # might be a bad name, not sure what else to call it th
 func type(start_index: int, end_index: int):
 	var all_letters = letters.get_children()
 	#print(all_letters)
+
+
+func _on_hacker_spawn_timer_timeout() -> void:
+	pass # Replace with function body.
