@@ -9,6 +9,9 @@ var hacker_scene: PackedScene = preload("res://hacker.tscn")
 @onready var camera = $Camera2D
 @onready var start_position = $start_of_terminal.global_position + Vector2(0,5)
 var color =  Color(1.0, 0.718, 0.0, 1.0)
+var ter_std_str = "guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> NEW BREACH DETECTED&guest@tinkle-tboard-t415e-wifi1:~$ "
+# terminal standard string
+var ter_rep_str = "hackerAlarm -> found x intruders!!!&" # terminal report string
 
 var num_of_hackers = 0
 var has_hackers = false
@@ -16,18 +19,20 @@ var hacker_alarm_color = Color(0.693, 0.027, 0.085, 1.0)
 
 var cur_zoom = Vector2(1,1)
 
-@onready var test_phase_timer = $test_switcher
-var test_string = "guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> NEW BREACH DETECTED&guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> found x intruders!!!&"
-var frame = 0
-var test_phase = 0
+#@onready var test_phase_timer = $test_switcher
+#var test_string = "guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> NEW BREACH DETECTED&guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> found x intruders!!!&"
+#var frame = 0
+#var test_phase = 0
 
 func _process(_delta: float) -> void:
 	text_engine.clear_all_loaded()
 	#spawn_let(font, string to generate, size (0.0625 is 6x6, 1 is 96x96), start position, color)
-	text_engine.spawn_let(1, test_string, 0.0625, start_position, color)
+	var str_index = str
+	print(str(hackers.get_child_count()))
+	text_engine.spawn_let(1, ter_std_str, 0.0625, start_position, color)
 
-	if test_phase_timer.is_stopped():
-		test_phase_timer.start()
+	#if test_phase_timer.is_stopped():
+		#test_phase_timer.start()
 	
 	if hacker_spawner_timer.is_stopped() and hackers.get_child_count() < 6:
 		hacker_spawner_timer.start()
@@ -65,22 +70,22 @@ func round_to_dec(num, digit: int):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
 
 
-func _on_test_switcher_timeout() -> void:
-	if test_phase == 0:
-		test_string = 'guest@tinkle-tboard-t415e-wifi1:~$ cat letter.tscn
-		&extends AnimatedSprite2D
-		&
-		&@onready var itself = $"."
-		&
-		&func set_color(c: Color):
-		&    itself.modulate = c
-		&func get_let():
-		&    return itself.frame
-		&
-		&func set_let(i: int):
-		&    itself.set_frame(i)
-		'
-		test_phase = 1
-	else:
-		test_string = 'Secondary test string'
-		test_phase = 0
+#func _on_test_switcher_timeout() -> void:
+	#if test_phase == 0:
+		#test_string = 'guest@tinkle-tboard-t415e-wifi1:~$ cat letter.tscn
+		#&extends AnimatedSprite2D
+		#&
+		#&@onready var itself = $"."
+		#&
+		#&func set_color(c: Color):
+		#&    itself.modulate = c
+		#&func get_let():
+		#&    return itself.frame
+		#&
+		#&func set_let(i: int):
+		#&    itself.set_frame(i)
+		#'
+		#test_phase = 1
+	#else:
+		#test_string = 'Secondary test string'
+		#test_phase = 0
