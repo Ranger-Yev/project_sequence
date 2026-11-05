@@ -23,4 +23,8 @@ position = Vector2(-320, -170)
 
 [node name="hackers" type="Node2D" parent="." unique_id=1848749011]
 
+[node name="test_switcher" type="Timer" parent="." unique_id=1778076617]
+wait_time = 2.0
+
 [connection signal="timeout" from="hacker_spawn_timer" to="." method="_on_hacker_spawn_timer_timeout"]
+[connection signal="timeout" from="test_switcher" to="." method="_on_test_switcher_timeout"]
