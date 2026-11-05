@@ -125,7 +125,7 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 		if arr[i] == 412: # if element at index i is 412, then treat it as a line break / new line.
 			pos = Vector2(start_pos.x, pos.y)
 			pos.y += 10
-			pos.x -= 16 * size
+			#pos.x -= 16 * size
 		elif font == 1 and alphabet_p[arr[i] % 64] == " " or font == 0 and alphabet_t[arr[i] % 31] == " ": 
 			# if element of the alphabet at index i % length of alphabet is space (" ") then treat is a space
 			pos.x += 64 * size
@@ -182,7 +182,7 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 					#print(len(alphabet_p)) # max char 64
 					if let > 64:
 						print("ERROR: Index out of range - Prog Type only has 63 characters. Dividing and using the remainder as the index.")
-						let = let % 63
+						let = let % 64
 			new_letter.frame = let
 			var new_scale = size * Vector2(1,1)
 			new_letter.scale = new_scale
@@ -190,3 +190,7 @@ func spawn_let(font: int, str_to_convert: String, size: float, start_pos: Vector
 
 func get_pos() -> Vector2:
 	return pos
+
+func clear_all_loaded() -> void: # deletes all current leters/resets the board
+	for i in letters.get_children():
+		i.queue_free()
