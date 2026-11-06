@@ -19,7 +19,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8628472, 0.17534722)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak182"]
-size = Vector2(79, 92.5)
+size = Vector2(1153.5, 646.25)
 
 [node name="main_office" type="Node2D" unique_id=1800851729]
 script = ExtResource("1_ia7or")
@@ -79,7 +79,7 @@ texture = ExtResource("3_2xuvg")
 [node name="Lights_Off" type="Area2D" parent="." unique_id=1571317325]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lights_Off" unique_id=1707694162]
-position = Vector2(932.5, 455.25)
+position = Vector2(575.25, 323.875)
 shape = SubResource("RectangleShape2D_ak182")
 
 [connection signal="mouse_entered" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_entered"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5n8y6nht8f7q" path="res://Scripts/game_big.gd" id="1_7npu2"]
 [ext_resource type="PackedScene" uid="uid://dgbifwr0c2qmq" path="res://main_office.tscn" id="2_nvqw7"]
 [ext_resource type="PackedScene" uid="uid://dhpafu1iu5a6a" path="res://cams.tscn" id="3_ehmcx"]
+[ext_resource type="Texture2D" uid="uid://bvl3tt2360uwo" path="res://Art/Evil_one.png" id="4_ehmcx"]
 
 [node name="Game Big" type="Node2D" unique_id=1381105428]
 script = ExtResource("1_7npu2")
@@ -16,3 +17,15 @@ visible = false
 [node name="Night Timer" type="Timer" parent="." unique_id=1779480743]
 wait_time = 180.0
 autostart = true
+
+[node name="Threat Move Timer" type="Timer" parent="." unique_id=147168470]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1541167412]
+
+[node name="Evil Guy" type="Sprite2D" parent="." unique_id=1030719091]
+position = Vector2(566, 321)
+scale = Vector2(0.0078125, 0.00781256)
+texture = ExtResource("4_ehmcx")
+
+[connection signal="timeout" from="Threat Move Timer" to="." method="_on_threat_move_timer_timeout"]

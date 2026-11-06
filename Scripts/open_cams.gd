@@ -16,11 +16,9 @@ func _process(delta: float) -> void:
 	actual_current_camera = current_camera_number * cam_size_number
 	if cam_light.position.x > -180:
 		if Input.is_action_pressed("ui_left"):
-			print(cam_light.position.x)
 			cam_light.position.x -= 100 * delta
 	if cam_light.position.x < 180:
 		if Input.is_action_pressed("ui_right"):
-			print(cam_light.position.x)
 			cam_light.position.x += 100 * delta
 	
 	if $".".visible: cam.make_current()
@@ -52,91 +50,91 @@ func _on_button_pressed() -> void:
 
 
 func _on_cam_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 1:
 		cam_selector.frame = 1
 		current_camera_number = 0
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 2:
 		cam_selector.frame = 2
 		current_camera_number = 1
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 3:
 		cam_selector.frame = 3
 		current_camera_number = 2
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 4:
 		cam_selector.frame = 4
 		current_camera_number = 3
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_5_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 5:
 		cam_selector.frame = 5
 		current_camera_number = 4
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_6_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 6:
 		cam_selector.frame = 6
 		current_camera_number = 5
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_7_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 7:
 		cam_selector.frame = 7
 		current_camera_number = 6
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_8_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 8:
 		cam_selector.frame = 8
 		current_camera_number = 7
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_9_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 9:
 		cam_selector.frame = 9
 		current_camera_number = 8
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_10_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 10:
 		cam_selector.frame = 10
 		current_camera_number = 9
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_11_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 11:
 		cam_selector.frame = 11
 		current_camera_number = 10
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_12_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 12:
 		cam_selector.frame = 12
 		current_camera_number = 11
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_13_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 13:
 		cam_selector.frame = 13
 		current_camera_number = 12
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_14_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 14:
 		cam_selector.frame = 14
 		current_camera_number = 13
 		actual_current_camera = current_camera_number * cam_size_number
 		cam.position.x = actual_current_camera
 func _on_cam_15_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("Click"):
+	if event.is_action_pressed("Click") and not cam_selector.frame == 15:
 		cam_selector.frame = 15
 		current_camera_number = 14
 		actual_current_camera = current_camera_number * cam_size_number
