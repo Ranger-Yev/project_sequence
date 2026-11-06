@@ -9,9 +9,10 @@ var hacker_scene: PackedScene = preload("res://hacker.tscn")
 @onready var camera = $Camera2D
 @onready var start_position = $start_of_terminal.global_position + Vector2(0,5)
 var color =  Color(1.0, 0.718, 0.0, 1.0)
-var ter_std_str = "guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> NEW BREACH DETECTED&guest@tinkle-tboard-t415e-wifi1:~$ "
-# terminal standard string
-var ter_rep_str = "hackerAlarm -> found x intruders!!!&" # terminal report string
+var ter_std_interface = "yevhenii@yevhenii-B550-EAGLE-WIFI6:~$ " # terminal standard interface
+var ter_hack_det = "hackerAlarm -> NEW BREACH DETECTED&" # terminal hacker detected
+var ter_rep_str_list = ["hackerAlarm -> found ", " intruders!!!&"] # terminal report string
+var ter_out = "" # output to temrinal
 
 var num_of_hackers = 0
 var has_hackers = false
@@ -27,9 +28,9 @@ var cur_zoom = Vector2(1,1)
 func _process(_delta: float) -> void:
 	text_engine.clear_all_loaded()
 	#spawn_let(font, string to generate, size (0.0625 is 6x6, 1 is 96x96), start position, color)
-	var str_index = str
-	print(str(hackers.get_child_count()))
-	text_engine.spawn_let(1, ter_std_str, 0.0625, start_position, color)
+	ter_out = ter_std_interface + ter_rep_str_list[0] + str(num_of_hackers) + ter_rep_str_list[1]
+	#print(str(hackers.get_child_count()))
+	text_engine.spawn_let(1, ter_out, 0.0625, start_position, color)
 
 	#if test_phase_timer.is_stopped():
 		#test_phase_timer.start()
