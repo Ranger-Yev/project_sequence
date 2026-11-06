@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 	ter_out = ter_std_interface + ter_rep_str_list[0] + str(num_of_hackers) + ter_rep_str_list[1]
 	#print(str(hackers.get_child_count()))
 	text_engine.spawn_let(1, ter_out, 0.0625, start_position, color)
-
+	
 	#if test_phase_timer.is_stopped():
 		#test_phase_timer.start()
 	
@@ -69,6 +69,7 @@ func _on_hacker_spawn_timer_timeout() -> void:
 
 func round_to_dec(num, digit: int):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+
 
 
 #func _on_test_switcher_timeout() -> void:
