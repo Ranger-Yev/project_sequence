@@ -21,11 +21,9 @@ var data_loss = 0
 var check_for_parents = 0
 
 func _process(_delta: float) -> void:
-	if !check_for_parents:
-		if itself.get_parent().name == "hackers":
-			parent = itself.get_parent()
-			print(parent.name)
-			pap = parent.get_parent()
+	if !check_for_parents and itself.get_parent().name == "hackers":
+		parent = itself.get_parent()
+		pap = parent.get_parent()
 			
 		check_for_parents = 1
 	if parent != null:
@@ -48,23 +46,23 @@ func _on_spawn_pts_timer_timeout() -> void:
 			hacker_spawn_points = 0
 	elif phase == 1:
 		var chance = randi_range(1,100)
-		print(chance)
-		if chance in range(50, 50 + difficulty):
+		#print(chance)
+		if chance in range(50, 80 + difficulty):
 			pop_up.visible = true
 
 func _on_data_loss_timer_timeout() -> void:
 	if phase == 1 and parent != null:
 		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
-		print("Phase 2 (1) -> ", hacker_spawn_points)
+		#print("Phase 2 (1) -> ", hacker_spawn_points)
 		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
-			print(data)
+			#print(data)
 			if data > 30.0:
 				data_loss = pap.round_to_dec((data / 30) * ((difficulty * 0.1) + 1), 2)
-				print("Above 30.0 ", data_loss)
+				#print("Above 30.0 ", data_loss)
 				data -= data_loss
 			elif data < 30.0 and data > 0.0:
 				data_loss = pap.round_to_dec((data / 40) * ((difficulty * 0.1) + 1), 2)
-				print("Below 30.0 and above 0.0 ", data_loss)
+				#print("Below 30.0 and above 0.0 ", data_loss)
 				data -= data_loss
 			elif data < 0.0:
 				data = 0.0 
