@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_threat_move_timer_timeout() -> void:
-	if chance_of_moving >= randi_range(0,100):
+	if chance_of_moving >= randi_range(0,1000):
 		room_progress += 1
 		chance_of_moving = 10 * room_progress
 	else:
@@ -42,10 +42,20 @@ func _on_threat_move_timer_timeout() -> void:
 	elif room_progress == 6:
 		camera6.frame = 1
 		_all_exept_cam6()
-	else:
+	elif room_progress > 6:
 		$"Open Cams".visible = false
-		$main_office.visible = false
-		print("This feeling...        It Is When You Would Die")
+		$main_office.visible = true
+		$main_office/PointLight2D.enabled = false
+		$AnimationPlayer.play("JUMPSCARE!!!")
+	else:
+		
+		pass
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	
+	pass
+
+
+
 	
 func round_to_dec(num, digit: int):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
