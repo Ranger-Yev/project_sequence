@@ -1,5 +1,7 @@
 extends Node2D
 
+# TO DO -> CHANGE hackers.get_children()[0] INTO A GODDAMN VARIABLE YOU LAZY SLUG //performance reasons (not that it affects it too much but it's nice to be efficient).+
+
 var hacker_scene: PackedScene = preload("res://hacker.tscn")
 
 @onready var hackers = $hackers
@@ -15,9 +17,9 @@ var ter_rep_hack_str_list = ["hackerAlarm -> found ", " intruders!!!&"] # termin
 var ter_rep_data_str_list = ["dataReport -> currently ", " data left.&"] # terminal report for data string
 var ter_out = "" # output to terminal
 
-var data = 100
+var data = 100.0
 var num_of_hackers = 0
-var has_hackers = false
+var has_hacker = false
 var hacker_alarm_color = Color(0.693, 0.027, 0.085, 1.0)
 
 var cur_zoom = Vector2(1,1)
@@ -40,13 +42,17 @@ func _process(_delta: float) -> void:
 	#if test_phase_timer.is_stopped():
 		#test_phase_timer.start()
 	
-	if hacker_spawner_timer.is_stopped() and hackers.get_child_count() < 4:
+	if hacker_spawner_timer.is_stopped() and !has_hacker:
 		hacker_spawner_timer.start()
+		
 	if !(hackers.get_children() == []):
-		has_hackers = true
-		num_of_hackers = hackers.get_child_count()
+		has_hacker = true
 		data = hackers.get_children()[0].get_data()
+		num_of_hackers = hackers.get_children()[0].get_num_hackers()
 		#print(hackers.get_children())
+	else:
+		has_hacker = false
+		hackers.get_children()[0].set_num_hackers(1)
 		
 	if Input.is_action_just_pressed("Scroll_Up") and not cur_zoom > Vector2(5.5,5.5):
 		cur_zoom += Vector2(0.5, 0.5)
@@ -54,6 +60,8 @@ func _process(_delta: float) -> void:
 		cur_zoom -= Vector2(0.5, 0.5)
 	if cur_zoom <= Vector2.ZERO:
 		cur_zoom = Vector2(0.5,0.5)
+	if Input.is_action_just_pressed("S"):
+		hackers.get_children()[0].set_num_hackers(hackers.get_children()[0].get_num_hackers() - 1)
 	#print(cur_zoom)
 	camera.zoom = cur_zoom
 
@@ -67,10 +75,12 @@ func text_hide_unhide(): # might be a bad name, not sure what else to call it th
 #hacker enemies
 func _on_hacker_spawn_timer_timeout() -> void:
 	var random = randi_range(1,100)
-	if hackers.get_child_count() < 4 and random > 77:
+	if hackers.get_children() == [] and !has_hacker and random > 90:
 		#print("hacker spwned!")
 		var hacker_new_instance = hacker_scene.instantiate() as Node2D
 		hackers.add_child(hacker_new_instance)
+	elif hackers.get_children() != [] and !has_hacker:
+		hackers.get_children()[0].set_num_hackers(1)
 
 func round_to_dec(num, digit: int):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)

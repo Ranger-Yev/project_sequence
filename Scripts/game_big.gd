@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var Threat_Move_Timer = $"Threat Move Timer"
 var chance_of_moving = 10
-var room_progress = 0
+var room_progress = 1
 @onready var camera1 = $"Open Cams/Cam1"
 @onready var camera2 = $"Open Cams/Cam2"
 @onready var camera3 = $"Open Cams/Cam3"
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 func _on_threat_move_timer_timeout() -> void:
 	if chance_of_moving >= randi_range(0,100):
 		room_progress += 1
-		chance_of_moving = 10*room_progress
+		chance_of_moving = 10 * room_progress
 	else:
 		chance_of_moving += 5
 	pass 

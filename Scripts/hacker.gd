@@ -3,6 +3,7 @@ extends Node2D
 @onready var spt = $spawn_pts_timer # Spawn points timer
 @onready var dlt = $data_loss_timer # Data loss timer
 @onready var pop_up = $pop_ups # pop_up Sprite2D
+@onready var hsfrtt = $hacker_spawner_fr_this_time # hacker spawner fr this time
 @onready var parent = null
 @onready var pap = null # parent of parent (hacking terminal should be default)
 
@@ -17,11 +18,11 @@ var hacker_spawn_points = 0
 @export var spawn_points_per_tick = 100
 @export var difficulty = 1
 @export var data_loss_pts_threshold = 1000.0
+@export var number_of_hackers = 1
 var data = 100
 var data_loss = 0
 var check_for_parents = 0
 var run_once = false
-
 
 func _process(_delta: float) -> void:
 	if !check_for_parents and itself.get_parent().name == "hackers":
@@ -30,7 +31,6 @@ func _process(_delta: float) -> void:
 			
 		check_for_parents = 1
 	if parent != null:
-		data = pap.get_data()
 		if !run_once and !debug_mode:
 			pass
 		if spt.is_stopped():
@@ -38,6 +38,8 @@ func _process(_delta: float) -> void:
 		if dlt.is_stopped():
 			#print("HACKER IS IN THE BASE")
 			dlt.start()
+		if number_of_hackers < 4 and hsfrtt.is_stopped():
+			hsfrtt.start()
 	else:
 		print("No parent found, shutting down.")
 	
@@ -49,7 +51,7 @@ func _on_spawn_pts_timer_timeout() -> void:
 		if hacker_spawn_points > 15000:
 			#print("New hacker!!!")
 			phase = 1
-			spawn_points_modifier = 2.0
+			spawn_points_modifier *= 2.0
 			hacker_spawn_points = 0
 	elif phase == 1:
 		var chance = randi_range(1,100)
@@ -63,21 +65,33 @@ func _on_data_loss_timer_timeout() -> void:
 		#print("Phase 2 (1) -> ", hacker_spawn_points)
 		#print(hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)))
 		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
+			data = pap.get_data()
 			#print(data)
 			if data > 30.0:
-				data_loss = pap.round_to_dec((data / 30) * ((difficulty * 0.1) + 1), 2)
+				data_loss = (data / 30) * ((difficulty * 0.1) + 1)
+				if number_of_hackers > 1:
+					data_loss *= (number_of_hackers * 0.75)
 				print("Above 30.0 ", data_loss)
+				data_loss = pap.round_to_dec(data_loss,2)
 				data -= data_loss
-			elif data < 30.0 and data > 0.0:
-				data_loss = pap.round_to_dec((data / 40) * ((difficulty * 0.1) + 1), 2)
+				pap.round_to_dec(data, 2)
+				pap.set_data(data)
+			elif data < 30.0 and data > 1.0:
+				data_loss = (data / 40) * ((difficulty * 0.1) + 1)
+				if number_of_hackers > 1:
+					data_loss *= (number_of_hackers * 0.5)
 				print("Below 30.0 and above 0.0 ", data_loss)
+				data_loss = pap.round_to_dec(data_loss,2)
 				data -= data_loss
-			elif data < 0.0:
+				pap.round_to_dec(data, 2)
+				pap.set_data(data)
+			elif data < 1.0:
 				data = 0.0
+				pap.set_data(data)
 			hacker_spawn_points = 0.0
 				
 
-func get_data():
+func get_data() -> float:
 	return data
 
 func set_phase(new_phase: int): # new_phase == 0 or 1 or 2
@@ -86,6 +100,17 @@ func set_phase(new_phase: int): # new_phase == 0 or 1 or 2
 	else:
 		print("new_phase is outside the possible range for hacker phase. Setting phase to default  (0)")
 		phase = 0
+
+func get_num_hackers() -> int:
+	return number_of_hackers
+
+func set_num_hackers(new_hackers: int):
+	number_of_hackers = new_hackers
+
+func _on_hacker_spawner_fr_this_time_timeout() -> void:
+	var random = randi_range(1,101)
+	if number_of_hackers < 4 and random > 95:
+		number_of_hackers += 1
 
 #HACKING SIDE-TERMINAL{
 #!!!Hackers >>> Old security systems have made the base vulnerable. You have a side monitor set up to 

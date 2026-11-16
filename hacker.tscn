@@ -17,5 +17,8 @@ visible = false
 position = Vector2(345, 191)
 texture = ExtResource("2_0xj6b")
 
+[node name="hacker_spawner_fr_this_time" type="Timer" parent="." unique_id=386060267]
+
 [connection signal="timeout" from="spawn_pts_timer" to="." method="_on_spawn_pts_timer_timeout"]
 [connection signal="timeout" from="data_loss_timer" to="." method="_on_data_loss_timer_timeout"]
+[connection signal="timeout" from="hacker_spawner_fr_this_time" to="." method="_on_hacker_spawner_fr_this_time_timeout"]
