@@ -11,14 +11,17 @@ var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>
 # 1 on getting the ones who already broke in out of the system, 
 # and 2 on going into the hacker's systems to steal the info back
 var hacker_spawn_points = 0
+@export var debug_mode = false # whether or not the parent node sets up local variables or not. 
+# If set to true the local independent variables will be set by the export value
 @export var spawn_points_modifier = 1.0
 @export var spawn_points_per_tick = 100
 @export var difficulty = 1
-@export var start_data_debug = 100.0
 @export var data_loss_pts_threshold = 1000.0
-var data = start_data_debug
+var data = 100
 var data_loss = 0
 var check_for_parents = 0
+var run_once = false
+
 
 func _process(_delta: float) -> void:
 	if !check_for_parents and itself.get_parent().name == "hackers":
@@ -27,6 +30,9 @@ func _process(_delta: float) -> void:
 			
 		check_for_parents = 1
 	if parent != null:
+		data = pap.get_data()
+		if !run_once and !debug_mode:
+			pass
 		if spt.is_stopped():
 			spt.start()
 		if dlt.is_stopped():
@@ -34,6 +40,7 @@ func _process(_delta: float) -> void:
 			dlt.start()
 	else:
 		print("No parent found, shutting down.")
+	
 		
 func _on_spawn_pts_timer_timeout() -> void:
 	if phase == 0:
@@ -54,21 +61,31 @@ func _on_data_loss_timer_timeout() -> void:
 	if phase == 1 and parent != null:
 		hacker_spawn_points += spawn_points_per_tick * spawn_points_modifier
 		#print("Phase 2 (1) -> ", hacker_spawn_points)
+		#print(hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)))
 		if hacker_spawn_points >= (data_loss_pts_threshold - (difficulty * 10)):
 			#print(data)
 			if data > 30.0:
 				data_loss = pap.round_to_dec((data / 30) * ((difficulty * 0.1) + 1), 2)
-				#print("Above 30.0 ", data_loss)
+				print("Above 30.0 ", data_loss)
 				data -= data_loss
 			elif data < 30.0 and data > 0.0:
 				data_loss = pap.round_to_dec((data / 40) * ((difficulty * 0.1) + 1), 2)
-				#print("Below 30.0 and above 0.0 ", data_loss)
+				print("Below 30.0 and above 0.0 ", data_loss)
 				data -= data_loss
 			elif data < 0.0:
-				data = 0.0 
+				data = 0.0
 			hacker_spawn_points = 0.0
 				
 
+func get_data():
+	return data
+
+func set_phase(new_phase: int): # new_phase == 0 or 1 or 2
+	if new_phase > -1 and new_phase < 3:
+		phase = new_phase
+	else:
+		print("new_phase is outside the possible range for hacker phase. Setting phase to default  (0)")
+		phase = 0
 
 #HACKING SIDE-TERMINAL{
 #!!!Hackers >>> Old security systems have made the base vulnerable. You have a side monitor set up to 

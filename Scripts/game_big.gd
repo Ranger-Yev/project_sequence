@@ -47,7 +47,8 @@ func _on_threat_move_timer_timeout() -> void:
 		$main_office.visible = false
 		print("This feeling...        It Is When You Would Die")
 	
-	
+func round_to_dec(num, digit: int):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)
 	
 	### THESE FUNCTIONS ARE A WORKAROUND TO CHANGING THE FRAMES CORRECTLY WITHOUT HAVING UGLY MESSY CODE IN EVERY SINGLE IF AND ELSE IF STATMENT ###
 func _all_exept_cam1():
