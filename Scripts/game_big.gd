@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_threat_move_timer_timeout() -> void:
-	if chance_of_moving >= randi_range(0,100):
+	if chance_of_moving >= randi_range(0,1000):
 		room_progress += 1
 		chance_of_moving = 10*room_progress
 	else:

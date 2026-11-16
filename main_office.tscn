@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://dgbifwr0c2qmq"]
 
 [ext_resource type="Script" uid="uid://c3obtvocqat3v" path="res://Scripts/main_office.gd" id="1_ia7or"]
-[ext_resource type="Texture2D" uid="uid://ccuuuah3cvqhc" path="res://Art/layout3.png" id="2_2xuvg"]
+[ext_resource type="Texture2D" uid="uid://bc2ywodbigsb1" path="res://Art/BG1.png" id="2_nlr50"]
+[ext_resource type="Texture2D" uid="uid://jb0tljy14eu8" path="res://Art/Doorswitch.png" id="3_1csic"]
 [ext_resource type="Texture2D" uid="uid://6vwwvp1i3p1b" path="res://Art/Cam-button.png" id="3_2xuvg"]
+[ext_resource type="Texture2D" uid="uid://cmlo7igwss3f2" path="res://Art/Dusty_particle.png" id="5_1csic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2uf"]
+size = Vector2(184, 392)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
 size = Vector2(142, 648)
@@ -27,8 +32,20 @@ script = ExtResource("1_ia7or")
 [node name="Layout3" type="Sprite2D" parent="." unique_id=996402068]
 modulate = Color(0.012617188, 0.012617188, 0.012504921, 1)
 position = Vector2(576, 323.49997)
-scale = Vector2(0.6, 0.60092586)
-texture = ExtResource("2_2xuvg")
+texture = ExtResource("2_nlr50")
+hframes = 4
+frame = 2
+
+[node name="Doorswitch" type="Sprite2D" parent="." unique_id=1384835229]
+position = Vector2(485, 313)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_1csic")
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="Doorswitch" unique_id=1293455406]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorswitch/Area2D" unique_id=1572114460]
+shape = SubResource("RectangleShape2D_yr2uf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=22339029]
 anchor_mode = 0
@@ -81,6 +98,18 @@ texture = ExtResource("3_2xuvg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lights_Off" unique_id=1707694162]
 position = Vector2(575.25, 323.875)
 shape = SubResource("RectangleShape2D_ak182")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1217468506]
+position = Vector2(309, -20)
+lifetime = 4.0
+gravity = Vector2(0, 100)
+scale_amount_min = 2.1
+scale_amount_max = 2.1
+
+[node name="DustyParticle" type="Sprite2D" parent="CPUParticles2D" unique_id=265406277]
+position = Vector2(-549, 400)
+texture = ExtResource("5_1csic")
+hframes = 4
 
 [connection signal="mouse_entered" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Left_Look" to="." method="_on_left_look_mouse_exited"]
