@@ -69,7 +69,7 @@ func _on_spawn_pts_timer_timeout() -> void:
 		if chance in range(579, 580 + difficulty):
 			var new_pop_up = pop_up_scene.instantiate() as Sprite2D
 			pop_ups.add_child(new_pop_up)
-			var random_loc = Vector2(randi_range(-300, 300), randi_range(-128,550))
+			var random_loc = Vector2(randi_range(-500, 100), randi_range(-128,550))
 			new_pop_up.spawn(random_loc)
 
 func _on_data_loss_timer_timeout() -> void:

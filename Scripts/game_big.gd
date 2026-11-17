@@ -11,6 +11,8 @@ var room_progress = 1
 @onready var camera6 = $"Open Cams/Cam6"
 @onready var hacking_terminal = $hacking_terminal
 
+var systems_running = 0 # number of systems currently running - for the surge/brown out feature
+
 var run_once = 0
 
 func _process(delta: float) -> void:
