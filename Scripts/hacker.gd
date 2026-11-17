@@ -2,11 +2,12 @@ extends Node2D
 @onready var itself = $"."
 @onready var spt = $spawn_pts_timer # Spawn points timer
 @onready var dlt = $data_loss_timer # Data loss timer
-@onready var pop_up = $pop_ups # pop_up Sprite2D
+@onready var pop_ups = $pop_ups # node to store all pop-ups in
 @onready var hsfrtt = $hacker_spawner_fr_this_time # hacker spawner fr this time
 @onready var parent = null
 @onready var pap = null # parent of parent (hacking terminal should be default)
 
+var pop_up_scene = preload("res://pop_up.tscn")
 var phase = 0 # 0 == <<PREVENTATIVE or BREACHING>>, 1 == <<CORRECTIVE or HACKED>>, 2 <<OFFENSIVE or RETURN_TO_SENDER>>
 # 0 focuses on stopping hackers from even getting into the system, 
 # 1 on getting the ones who already broke in out of the system, 
@@ -23,6 +24,7 @@ var data = 100
 var data_loss = 0
 var check_for_parents = 0
 var run_once = false
+var pop_ups_to_delete = []
 
 func _process(_delta: float) -> void:
 	if !check_for_parents and itself.get_parent().name == "hackers":
@@ -42,6 +44,14 @@ func _process(_delta: float) -> void:
 			hsfrtt.start()
 	else:
 		print("No parent found, shutting down.")
+	for i in pop_ups.get_children():
+		if i.get_button_status() == true:
+			pop_ups_to_delete.append(i.name)
+	for i in pop_ups.get_children():
+		for j in pop_ups_to_delete:
+			if i.name == j:
+				i.queue_free()
+				pop_ups_to_delete.erase(j)
 	
 		
 func _on_spawn_pts_timer_timeout() -> void:
@@ -54,10 +64,13 @@ func _on_spawn_pts_timer_timeout() -> void:
 			spawn_points_modifier *= 2.0
 			hacker_spawn_points = 0
 	elif phase == 1:
-		var chance = randi_range(1,100)
+		var chance = randi_range(1,601)
 		#print(chance)
-		if chance in range(50, 80 + difficulty):
-			pop_up.visible = true
+		if chance in range(579, 580 + difficulty):
+			var new_pop_up = pop_up_scene.instantiate() as Sprite2D
+			pop_ups.add_child(new_pop_up)
+			var random_loc = Vector2(randi_range(-300, 300), randi_range(-128,550))
+			new_pop_up.spawn(random_loc)
 
 func _on_data_loss_timer_timeout() -> void:
 	if phase == 1 and parent != null:
@@ -69,18 +82,18 @@ func _on_data_loss_timer_timeout() -> void:
 			#print(data)
 			if data > 30.0:
 				data_loss = (data / 30) * ((difficulty * 0.1) + 1)
-				if number_of_hackers > 1:
-					data_loss *= (number_of_hackers * 0.75)
-				print("Above 30.0 ", data_loss)
+				#if number_of_hackers > 1: # Modifies data loss by num of hackers
+					#data_loss *= (number_of_hackers * 0.75)
+				#print("Above 30.0 ", data_loss)
 				data_loss = pap.round_to_dec(data_loss,2)
 				data -= data_loss
 				pap.round_to_dec(data, 2)
 				pap.set_data(data)
 			elif data < 30.0 and data > 1.0:
 				data_loss = (data / 40) * ((difficulty * 0.1) + 1)
-				if number_of_hackers > 1:
-					data_loss *= (number_of_hackers * 0.5)
-				print("Below 30.0 and above 0.0 ", data_loss)
+				#if number_of_hackers > 1: # Modifies data loss by num of hackers
+					#data_loss *= (number_of_hackers * 0.5)
+				#print("Below 30.0 and above 0.0 ", data_loss)
 				data_loss = pap.round_to_dec(data_loss,2)
 				data -= data_loss
 				pap.round_to_dec(data, 2)
@@ -109,7 +122,7 @@ func set_num_hackers(new_hackers: int):
 
 func _on_hacker_spawner_fr_this_time_timeout() -> void:
 	var random = randi_range(1,101)
-	if number_of_hackers < 4 and random > 95:
+	if number_of_hackers < 4 and random > 99:
 		number_of_hackers += 1
 
 #HACKING SIDE-TERMINAL{

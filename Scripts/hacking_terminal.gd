@@ -52,7 +52,8 @@ func _process(_delta: float) -> void:
 		#print(hackers.get_children())
 	else:
 		has_hacker = false
-		hackers.get_children()[0].set_num_hackers(1)
+		if hackers.get_children() != []:
+			hackers.get_children()[0].set_num_hackers(1)
 		
 	if Input.is_action_just_pressed("Scroll_Up") and not cur_zoom > Vector2(5.5,5.5):
 		cur_zoom += Vector2(0.5, 0.5)
@@ -75,7 +76,7 @@ func text_hide_unhide(): # might be a bad name, not sure what else to call it th
 #hacker enemies
 func _on_hacker_spawn_timer_timeout() -> void:
 	var random = randi_range(1,100)
-	if hackers.get_children() == [] and !has_hacker and random > 90:
+	if hackers.get_children() == [] and !has_hacker and random > 75:
 		#print("hacker spwned!")
 		var hacker_new_instance = hacker_scene.instantiate() as Node2D
 		hackers.add_child(hacker_new_instance)

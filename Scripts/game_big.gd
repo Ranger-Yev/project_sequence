@@ -9,12 +9,13 @@ var room_progress = 1
 @onready var camera4 = $"Open Cams/Cam4"
 @onready var camera5 = $"Open Cams/Cam5"
 @onready var camera6 = $"Open Cams/Cam6"
-# Called when the node enters the scene tree for the first time.
-func _process(delta: float) -> void:
-	
-	
-	pass
+@onready var hacking_terminal = $hacking_terminal
 
+var run_once = 0
+
+func _process(delta: float) -> void:
+	if !run_once:
+		run_once += 1
 
 func _on_threat_move_timer_timeout() -> void:
 	if chance_of_moving >= randi_range(0,1000):

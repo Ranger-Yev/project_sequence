@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bgxj4itbi4dwb"]
+
+[ext_resource type="Texture2D" uid="uid://cncxwq5442t2f" path="res://Art/ad_1.png" id="1_xhdr8"]
+[ext_resource type="Script" uid="uid://b51t8i0f7s045" path="res://Scripts/pop_up.gd" id="2_15nyw"]
+[ext_resource type="Texture2D" uid="uid://bndwg4h8p0b5v" path="res://Art/x_button.png" id="3_15nyw"]
+
+[node name="Pop_up" type="Sprite2D" unique_id=336873054]
+texture = ExtResource("1_xhdr8")
+script = ExtResource("2_15nyw")
+
+[node name="Button" type="Button" parent="." unique_id=1766527611]
+modulate = Color(1, 0, 0.16666698, 1)
+anchors_preset = -1
+anchor_left = 0.929
+anchor_right = 1.0
+anchor_bottom = 0.123
+offset_left = -281.09802
+offset_top = -162.0
+offset_right = -281.0
+offset_bottom = -161.852
+icon = ExtResource("3_15nyw")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
