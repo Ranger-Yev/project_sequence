@@ -2,24 +2,27 @@ extends Node2D
 
 @onready var Threat_Move_Timer = $"Threat Move Timer"
 var chance_of_moving = 10
-var room_progress = 0
+var room_progress = 1
 @onready var camera1 = $"Open Cams/Cam1"
 @onready var camera2 = $"Open Cams/Cam2"
 @onready var camera3 = $"Open Cams/Cam3"
 @onready var camera4 = $"Open Cams/Cam4"
 @onready var camera5 = $"Open Cams/Cam5"
 @onready var camera6 = $"Open Cams/Cam6"
-# Called when the node enters the scene tree for the first time.
-func _process(delta: float) -> void:
-	
-	
-	pass
+@onready var hacking_terminal = $hacking_terminal
 
+var systems_running = 0 # number of systems currently running - for the surge/brown out feature
+
+var run_once = 0
+
+func _process(delta: float) -> void:
+	if !run_once:
+		run_once += 1
 
 func _on_threat_move_timer_timeout() -> void:
 	if chance_of_moving >= randi_range(0,1000):
 		room_progress += 1
-		chance_of_moving = 10*room_progress
+		chance_of_moving = 10 * room_progress
 	else:
 		chance_of_moving += 5
 	pass 
