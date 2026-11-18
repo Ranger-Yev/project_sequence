@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c3l50xepcm060"]
+
+[ext_resource type="Texture2D" uid="uid://8vl65jtcyp70" path="res://Art/BigDustyparticle.png" id="1_ot8jr"]
+[ext_resource type="Script" uid="uid://d2lhrwqoj8lp8" path="res://DELETE_THIS.gd" id="2_l0evx"]
+
+[node name="Node2D" type="Node2D" unique_id=2051778408]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1746275514]
+scale = Vector2(4, 4)
+script = ExtResource("2_l0evx")
+
+[node name="BigDustyparticle" type="Sprite2D" parent="Marker2D" unique_id=1035239355]
+position = Vector2(250, -250)
+texture = ExtResource("1_ot8jr")
+hframes = 4
+frame = 3
+
+[node name="Timer" type="Timer" parent="Marker2D" unique_id=1783807399]
+wait_time = 0.2
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1380353663]
+position = Vector2(576, -324)
+scale = Vector2(2, 2)
+
+[connection signal="timeout" from="Marker2D/Timer" to="Marker2D" method="_on_timer_timeout"]

@@ -4,7 +4,9 @@ extends Node2D
 @onready var itself = $"." 
 @onready var light = $PointLight2D
 @onready var layout3 = $Layout3
+@onready var marker = $Marker2D
 
+var dustymod = false
 var parent
 var open_cams
 
@@ -32,6 +34,13 @@ func _process(delta: float) -> void:
 			light.visible = true
 		else:
 			light.visible = false
+	
+	if Input.is_action_just_pressed("Click"):
+		layout3.frame = 3
+	
+	if !dustymod: 
+		marker.modulate += Color(0,0,0,1*delta)
+		
 	
 	
 	if cam.position.x <= 1:
@@ -71,6 +80,7 @@ func _on_button_pressed() -> void:
 
 func _on_lights_off_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Click"):
+		
 		if lights_on:
 			light.visible = false
 			lights_off = true
