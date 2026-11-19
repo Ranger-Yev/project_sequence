@@ -73,7 +73,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_lights_off_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action_pressed("Click"):
+	if event.is_action_pressed("Right Click"):
 		
 		if lights_on:
 			light.visible = false
@@ -94,7 +94,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			door_closed = true
 			print(door_closed)
 		else: 
-			layout3.frame = 1
+			layout3.frame = 0
 			door_closed = false
 			print(door_closed)
 		
