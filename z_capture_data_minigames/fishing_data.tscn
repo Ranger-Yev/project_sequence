@@ -10,16 +10,20 @@ script = ExtResource("1_8wysi")
 position = Vector2(16, 16)
 
 [node name="row_1" type="Marker2D" parent="." unique_id=1324615734]
-position = Vector2(0, 150)
+position = Vector2(0, 75)
 
 [node name="row_2" type="Marker2D" parent="." unique_id=1529537843]
-position = Vector2(0, 250)
+position = Vector2(0, 125)
 
 [node name="row_3" type="Marker2D" parent="." unique_id=687373229]
-position = Vector2(0, 350)
+position = Vector2(0, 175)
 
 [node name="row_4" type="Marker2D" parent="." unique_id=1858193960]
-position = Vector2(0, 450)
+position = Vector2(0, 225)
 
 [node name="row_5" type="Marker2D" parent="." unique_id=172784242]
-position = Vector2(0, 575)
+position = Vector2(0, 300)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1222261130]
+position = Vector2(482, 269)
+zoom = Vector2(1.2, 1.2)

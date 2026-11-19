@@ -23,19 +23,21 @@ var color_array = [cheap_color, semi_cheap_color, middle_ground_color, semi_rich
 var go_positive = false
 
 func _process(delta: float) -> void:
-	if !do_once:
-		speed += randf_range(-10.0, 45.5)
-		if negative_limit < itself.global_position.x:
-			go_positive = true
+	if itself.global_position.x > positive_limit: go_positive = false
+	if itself.global_position.x < negative_limit: go_positive = true
 	if go_positive:
 		direction = 1
 		sprite.global_rotation_degrees = 0.0
 	else: # go negative
 		direction = -1
 		sprite.global_rotation_degrees = -180.0
+	
+	if !do_once:
+		speed += randf_range(-10.0, 45.5)
+		do_once = true
+	
 	itself.global_position.x += speed * direction * delta
-	if itself.global_position.x > positive_limit: go_positive = false
-	if itself.global_position.x < negative_limit: go_positive = true
+	
 
 func set_color(index: int) -> void:
 	itself.modulate = color_array[index]
@@ -46,3 +48,9 @@ func set_limits(new_negative_limit, new_positive_limit) -> void:
 	
 func add_speed(to_be_added: float) -> void:
 	speed += to_be_added
+	
+func set_dir(new_dir: int) -> void:
+	if new_dir == -1:
+		go_positive = false
+	else:
+		go_positive = true
