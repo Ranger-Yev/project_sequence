@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bctn8y4o7qnox" path="res://Art/cams/Records_Cam-sheet.png" id="7_co2ng"]
 [ext_resource type="Texture2D" uid="uid://tjopjrscloki" path="res://Art/cams/Storage_Cam-sheet.png" id="8_yfh2k"]
 [ext_resource type="Texture2D" uid="uid://6vwwvp1i3p1b" path="res://Art/Cam-button.png" id="9_0kbmt"]
+[ext_resource type="Texture2D" uid="uid://bvl3tt2360uwo" path="res://Art/Evil_one.png" id="11_hdvee"]
 
 [sub_resource type="Gradient" id="Gradient_ia7or"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -35,38 +36,32 @@ scale = Vector2(156.1875, 10.144532)
 texture = ExtResource("2_0kbmt")
 
 [node name="Cam1" type="Sprite2D" parent="." unique_id=1258461924]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(576, 324)
 scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("3_0kbmt")
 hframes = 4
 
 [node name="Cam2" type="Sprite2D" parent="." unique_id=444000366]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(1728, 324)
 texture = ExtResource("4_0kbmt")
 hframes = 2
 
 [node name="Cam3" type="Sprite2D" parent="." unique_id=765963354]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(2880, 324)
 texture = ExtResource("5_0kbmt")
 hframes = 2
 
 [node name="Cam4" type="Sprite2D" parent="." unique_id=2039621712]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(4033, 324)
 texture = ExtResource("6_hdvee")
 hframes = 2
 
 [node name="Cam5" type="Sprite2D" parent="." unique_id=170096805]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(5185, 324)
 texture = ExtResource("7_co2ng")
 hframes = 2
 
 [node name="Cam6" type="Sprite2D" parent="." unique_id=1086232391]
-modulate = Color(0.012617188, 0.012617188, 0.012617188, 1)
 position = Vector2(6337, 324)
 texture = ExtResource("8_yfh2k")
 hframes = 2
@@ -239,6 +234,10 @@ position = Vector2(-16.250004, 366.24994)
 position = Vector2(-39.375, -29.999996)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_42brd")
+
+[node name="0" type="Sprite2D" parent="." unique_id=881348212]
+position = Vector2(600, 400)
+texture = ExtResource("11_hdvee")
 
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
 [connection signal="input_event" from="Camera2D/CamsSelector/Cam1" to="." method="_on_cam_1_input_event"]
