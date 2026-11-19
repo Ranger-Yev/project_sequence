@@ -10,6 +10,8 @@ var cam_size_number = 1152
 @onready var cam = $Camera2D
 @onready var cam_selector = $Camera2D/CamsSelector
 
+@onready var zero = $"0"
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -41,7 +43,9 @@ func _process(delta: float) -> void:
 			cam_pause.start()
 		cam.position.x -= 50*delta
 		
-	pass
+	
+	
+
 
 func _on_button_pressed() -> void:
 	$"../main_office".visible = true

@@ -4,19 +4,17 @@ extends Node2D
 @onready var itself = $"." 
 @onready var light = $PointLight2D
 @onready var layout3 = $Layout3
-@onready var marker = $Marker2D
 
-var dustymod = false
+
 var parent
 var open_cams
-
 var run_once = false
-
 var look_right = false
 var look_left = false
 var mouse_pos
 var lights_on
 var lights_off
+var door_closed = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,11 +33,7 @@ func _process(delta: float) -> void:
 		else:
 			light.visible = false
 	
-	if Input.is_action_just_pressed("Click"):
-		layout3.frame = 3
 	
-	if !dustymod: 
-		marker.modulate += Color(0,0,0,1*delta)
 		
 	
 	
@@ -91,3 +85,19 @@ func _on_lights_off_input_event(viewport: Node, event: InputEvent, shape_idx: in
 			lights_off = false
 			
 	else: pass
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("Click"):
+		if !door_closed:
+			layout3.frame = 2
+			door_closed = true
+			print(door_closed)
+		else: 
+			layout3.frame = 1
+			door_closed = false
+			print(door_closed)
+		
+	
+	
+	
