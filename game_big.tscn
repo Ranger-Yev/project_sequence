@@ -92,7 +92,7 @@ _data = {
 &"RESET": SubResource("Animation_4xpnr")
 }
 
-[node name="Game Big" type="Node2D" unique_id=1381105428]
+[node name="Game_Big" type="Node2D" unique_id=1381105428]
 script = ExtResource("1_7npu2")
 
 [node name="main_office" parent="." unique_id=1800851729 instance=ExtResource("2_nvqw7")]

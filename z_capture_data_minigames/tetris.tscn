@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dx4gvgu53n26f"]
+
+[ext_resource type="Script" uid="uid://dcjdbbmbfbh5c" path="res://z_capture_data_minigames/Scripts/tetris.gd" id="1_pjvec"]
+
+[node name="Tetris" type="Node2D" unique_id=1808936294]
+script = ExtResource("1_pjvec")

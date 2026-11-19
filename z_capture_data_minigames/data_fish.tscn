@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://vh743phd05rd"]
 
-[ext_resource type="Script" uid="uid://tbpfjgyq45e7" path="res://data_fish.gd" id="1_kqfp3"]
+[ext_resource type="Script" uid="uid://tbpfjgyq45e7" path="res://z_capture_data_minigames/Scripts/data_fish.gd" id="1_kqfp3"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_nt6ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lc62"]
+size = Vector2(32, 17)
 
 [node name="data_fish" type="Node2D" unique_id=2036611454]
 script = ExtResource("1_kqfp3")
@@ -48,3 +51,9 @@ position = Vector2(5.064169, 6.4021745)
 rotation = -0.98324794
 scale = Vector2(0.07000365, 0.015954722)
 texture = ExtResource("2_nt6ge")
+
+[node name="area_of_stoppage" type="Area2D" parent="." unique_id=2027616171]
+
+[node name="hit_box" type="CollisionShape2D" parent="area_of_stoppage" unique_id=484174502]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_5lc62")

@@ -24,7 +24,6 @@ var data = 100
 var data_loss = 0
 var check_for_parents = 0
 var run_once = false
-var pop_ups_to_delete = []
 
 func _process(_delta: float) -> void:
 	if !check_for_parents and itself.get_parent().name == "hackers":
@@ -44,14 +43,6 @@ func _process(_delta: float) -> void:
 			hsfrtt.start()
 	else:
 		print("No parent found, shutting down.")
-	for i in pop_ups.get_children():
-		if i.get_button_status() == true:
-			pop_ups_to_delete.append(i.name)
-	for i in pop_ups.get_children():
-		for j in pop_ups_to_delete:
-			if i.name == j:
-				i.queue_free()
-				pop_ups_to_delete.erase(j)
 	
 		
 func _on_spawn_pts_timer_timeout() -> void:
