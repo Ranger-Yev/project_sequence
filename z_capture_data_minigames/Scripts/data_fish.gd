@@ -6,11 +6,13 @@ extends Node2D
 var direction = 1#0 # -1 left, 1 right, 0 no direction
 @export var speed: float = 100.0
 
+var stop: bool = false
 var do_once = false
 var negative_limit = 0
 var positive_limit = 0
 
-var data_value = [1, 3, 5, 10, 25]
+@export var data_value_array = [1, 3, 5, 10, 25]
+var value = 0
 # colors for "rarities"/value distinguishment 
 var cheap_color = Color(0.23, 0.55, 0.044, 1.0)
 var semi_cheap_color = Color(0.02, 0.69, 1.0, 1.0)
@@ -36,7 +38,8 @@ func _process(delta: float) -> void:
 		speed += randf_range(-10.0, 45.5)
 		do_once = true
 	
-	itself.global_position.x += speed * direction * delta
+	if !stop:
+		itself.global_position.x += speed * direction * delta
 	
 
 func set_color(index: int) -> void:
@@ -54,3 +57,15 @@ func set_dir(new_dir: int) -> void:
 		go_positive = false
 	else:
 		go_positive = true
+
+func set_value(index: int) -> void:
+	value = data_value_array[index]
+
+func get_stop() -> bool: # whether this 'fish' can move/do stuff
+	return stop
+
+func get_value() -> int:
+	return value
+
+func stop_this_fish() -> void:
+	stop = true

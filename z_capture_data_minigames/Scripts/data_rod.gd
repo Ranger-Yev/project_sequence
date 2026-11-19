@@ -6,13 +6,15 @@ extends Node2D
 @export var vert_speed: float = 450.0
 var vert_dir = 0
 var dir = 0
-var space_disabled = false
+var movement_disabled = false
+var value = 0
 
 func _process(delta: float) -> void:
-	dir = Input.get_axis("Left", "Right")
+	if !movement_disabled:
+		dir = Input.get_axis("Left", "Right")
 	if vert_dir != 0:
 		dir = 0
-	if Input.is_action_just_pressed("Space") and vert_dir != -1 and !space_disabled:
+	if Input.is_action_just_pressed("Space") and vert_dir != -1 and !movement_disabled:
 		vert_dir = 1
 	if itself.global_position.y > 620:
 		vert_dir = -1
@@ -23,8 +25,14 @@ func _process(delta: float) -> void:
 	itself.global_position.x += dir * speed * delta
 		
 
-
-func _on_rod_area_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+func _on_rod_area_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	dir = 0
 	vert_dir = 0
-	space_disabled = true
+	movement_disabled = true
+	var parent_of_the_touched = area.get_parent()
+	parent_of_the_touched.stop_this_fish()
+	value += parent_of_the_touched.get_value()
+	#print(value)
+
+func get_value_of_rod() -> int:
+	return value

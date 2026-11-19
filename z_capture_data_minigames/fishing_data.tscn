@@ -9,21 +9,23 @@ script = ExtResource("1_8wysi")
 [node name="data_rod" parent="." unique_id=2072479645 instance=ExtResource("2_q1pve")]
 position = Vector2(16, 16)
 
-[node name="row_1" type="Marker2D" parent="." unique_id=1324615734]
-position = Vector2(0, 75)
-
-[node name="row_2" type="Marker2D" parent="." unique_id=1529537843]
-position = Vector2(0, 125)
-
-[node name="row_3" type="Marker2D" parent="." unique_id=687373229]
-position = Vector2(0, 175)
-
-[node name="row_4" type="Marker2D" parent="." unique_id=1858193960]
-position = Vector2(0, 225)
-
-[node name="row_5" type="Marker2D" parent="." unique_id=172784242]
-position = Vector2(0, 300)
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1222261130]
 position = Vector2(482, 269)
 zoom = Vector2(1.2, 1.2)
+
+[node name="rows" type="Node" parent="." unique_id=144919839]
+
+[node name="row_1" type="Marker2D" parent="rows" unique_id=1324615734]
+position = Vector2(0, 75)
+
+[node name="row_2" type="Marker2D" parent="rows" unique_id=1529537843]
+position = Vector2(0, 125)
+
+[node name="row_3" type="Marker2D" parent="rows" unique_id=687373229]
+position = Vector2(0, 175)
+
+[node name="row_4" type="Marker2D" parent="rows" unique_id=1858193960]
+position = Vector2(0, 225)
+
+[node name="row_5" type="Marker2D" parent="rows" unique_id=172784242]
+position = Vector2(0, 300)

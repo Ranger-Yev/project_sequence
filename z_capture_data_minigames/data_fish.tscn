@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_nt6ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lc62"]
-size = Vector2(32, 17)
+size = Vector2(27, 15)
 
 [node name="data_fish" type="Node2D" unique_id=2036611454]
 script = ExtResource("1_kqfp3")
@@ -55,5 +55,4 @@ texture = ExtResource("2_nt6ge")
 [node name="area_of_stoppage" type="Area2D" parent="." unique_id=2027616171]
 
 [node name="hit_box" type="CollisionShape2D" parent="area_of_stoppage" unique_id=484174502]
-position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_5lc62")

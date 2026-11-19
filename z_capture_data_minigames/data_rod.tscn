@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c6rog30mfcyww" path="res://z_capture_data_minigames/Scripts/data_rod.gd" id="1_6htsg"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_ib6kg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s37yc"]
-size = Vector2(28, 28)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywfmc"]
+radius = 13.0
 
 [node name="data_rod" type="Node2D" unique_id=2072479645]
 script = ExtResource("1_6htsg")
@@ -16,6 +16,6 @@ texture = ExtResource("2_ib6kg")
 [node name="rod_area" type="Area2D" parent="." unique_id=2086233154]
 
 [node name="rod_hitbox" type="CollisionShape2D" parent="rod_area" unique_id=279828826]
-shape = SubResource("RectangleShape2D_s37yc")
+shape = SubResource("CircleShape2D_ywfmc")
 
 [connection signal="area_shape_entered" from="rod_area" to="." method="_on_rod_area_area_shape_entered"]
