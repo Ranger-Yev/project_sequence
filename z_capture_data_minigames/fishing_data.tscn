@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://baxv7ohd38smx"]
+
+[ext_resource type="Script" uid="uid://dx0134ioypjcy" path="res://z_capture_data_minigames/Scripts/fishing_data.gd" id="1_8wysi"]
+[ext_resource type="PackedScene" uid="uid://dn8dtk246lnid" path="res://z_capture_data_minigames/data_rod.tscn" id="2_q1pve"]
+
+[node name="Fishing_Data" type="Node2D" unique_id=1692740793]
+script = ExtResource("1_8wysi")
+
+[node name="data_rod" parent="." unique_id=2072479645 instance=ExtResource("2_q1pve")]
+position = Vector2(16, 16)
+
+[node name="row_1" type="Marker2D" parent="." unique_id=1324615734]
+position = Vector2(0, 150)
+
+[node name="row_2" type="Marker2D" parent="." unique_id=1529537843]
+position = Vector2(0, 250)
+
+[node name="row_3" type="Marker2D" parent="." unique_id=687373229]
+position = Vector2(0, 350)
+
+[node name="row_4" type="Marker2D" parent="." unique_id=1858193960]
+position = Vector2(0, 450)
+
+[node name="row_5" type="Marker2D" parent="." unique_id=172784242]
+position = Vector2(0, 575)

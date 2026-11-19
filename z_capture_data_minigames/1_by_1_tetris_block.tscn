@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://1nmpxsyh3v3"]
+
+[node name="1_by_1_tetris_block" type="Node2D" unique_id=973269504]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1965907322]

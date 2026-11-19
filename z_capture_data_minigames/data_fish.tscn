@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://vh743phd05rd"]
+
+[ext_resource type="Script" uid="uid://tbpfjgyq45e7" path="res://z_capture_data_minigames/Scripts/data_fish.gd" id="1_kqfp3"]
+[ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_nt6ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lc62"]
+size = Vector2(32, 17)
+
+[node name="data_fish" type="Node2D" unique_id=2036611454]
+script = ExtResource("1_kqfp3")
+
+[node name="sprite" type="Node2D" parent="." unique_id=29612937]
+
+[node name="Sprite2D6" type="Sprite2D" parent="sprite" unique_id=690441017]
+position = Vector2(12, -2)
+rotation = 0.05034977
+scale = Vector2(0.07398013, 0.055791244)
+texture = ExtResource("2_nt6ge")
+
+[node name="Sprite2D7" type="Sprite2D" parent="sprite" unique_id=1880660665]
+position = Vector2(12.293669, 2.0770402)
+rotation = -0.3971366
+scale = Vector2(0.06417082, 0.044267137)
+texture = ExtResource("2_nt6ge")
+
+[node name="Sprite2D2" type="Sprite2D" parent="sprite" unique_id=1790883569]
+position = Vector2(-13, -4.9999995)
+rotation = 0.5072606
+scale = Vector2(0.1, 0.032)
+texture = ExtResource("2_nt6ge")
+
+[node name="Sprite2D3" type="Sprite2D" parent="sprite" unique_id=154473498]
+position = Vector2(-13, 5.0000005)
+rotation = -0.5078908
+scale = Vector2(0.1, 0.032)
+texture = ExtResource("2_nt6ge")
+
+[node name="Sprite2D" type="Sprite2D" parent="sprite" unique_id=1634632090]
+position = Vector2(1, 0)
+scale = Vector2(0.175, 0.1)
+texture = ExtResource("2_nt6ge")
+
+[node name="Sprite2D4" type="Sprite2D" parent="sprite" unique_id=322296267]
+position = Vector2(0.9999997, -6.9999995)
+rotation = 0.5072606
+scale = Vector2(0.1, 0.05039998)
+texture = ExtResource("2_nt6ge")
+
+[node name="Sprite2D5" type="Sprite2D" parent="sprite" unique_id=860551831]
+position = Vector2(5.064169, 6.4021745)
+rotation = -0.98324794
+scale = Vector2(0.07000365, 0.015954722)
+texture = ExtResource("2_nt6ge")
+
+[node name="area_of_stoppage" type="Area2D" parent="." unique_id=2027616171]
+
+[node name="hit_box" type="CollisionShape2D" parent="area_of_stoppage" unique_id=484174502]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_5lc62")
