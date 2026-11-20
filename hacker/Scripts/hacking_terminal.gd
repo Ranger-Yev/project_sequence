@@ -2,14 +2,14 @@ extends Node2D
 
 # TO DO -> CHANGE hackers.get_children()[0] INTO A GODDAMN VARIABLE YOU LAZY SLUG //performance reasons (not that it affects it too much but it's nice to be efficient).+
 
-var hacker_scene: PackedScene = preload("res://hacker.tscn")
+var hacker_scene: PackedScene = preload("res://hacker/hacker.tscn")
 
 @onready var hackers = $hackers
 @onready var hacker_spawner_timer = $hacker_spawn_timer
 @onready var letters = $text_engine/letters
 @onready var text_engine = $text_engine
 @onready var camera = $Camera2D
-@onready var start_position = $start_of_terminal.global_position + Vector2(0,5)
+@onready var start_position = $start_of_terminal.position + Vector2(0,5)
 var color =  Color(1.0, 0.718, 0.0, 1.0)
 var ter_std_interface = "yevhenii@yevhenii-B550-EAGLE-WIFI6:~$ " # terminal standard interface
 var ter_hack_det = "hackerAlarm -> NEW BREACH DETECTED&" # terminal hacker detected
@@ -22,7 +22,6 @@ var num_of_hackers = 0
 var has_hacker = false
 var hacker_alarm_color = Color(0.693, 0.027, 0.085, 1.0)
 
-var cur_zoom = Vector2(1,1)
 
 #@onready var test_phase_timer = $test_switcher
 #var test_string = "guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> NEW BREACH DETECTED&guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> found x intruders!!!&"
@@ -55,16 +54,9 @@ func _process(_delta: float) -> void:
 		if hackers.get_children() != []:
 			hackers.get_children()[0].set_num_hackers(1)
 		
-	if Input.is_action_just_pressed("Scroll_Up") and not cur_zoom > Vector2(5.5,5.5):
-		cur_zoom += Vector2(0.5, 0.5)
-	if  Input.is_action_just_pressed("Scroll_Down") and not cur_zoom < Vector2(0.5,0.5):
-		cur_zoom -= Vector2(0.5, 0.5)
-	if cur_zoom <= Vector2.ZERO:
-		cur_zoom = Vector2(0.5,0.5)
 	if Input.is_action_just_pressed("S"):
 		hackers.get_children()[0].set_num_hackers(hackers.get_children()[0].get_num_hackers() - 1)
-	#print(cur_zoom)
-	camera.zoom = cur_zoom
+
 
 func text_hide_unhide(): # might be a bad name, not sure what else to call it though
 	var is_letters_vis = text_engine.get_visibility()

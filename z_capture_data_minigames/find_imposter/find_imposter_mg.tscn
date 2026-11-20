@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cop8es51wqlyd"]
+
+[ext_resource type="Script" uid="uid://brl1qw4abal2w" path="res://z_capture_data_minigames/find_imposter/Scripts/find_imposter_mg.gd" id="1_vq7th"]
+
+[node name="Find_Imposter_MG" type="Node2D" unique_id=818872972]
+script = ExtResource("1_vq7th")

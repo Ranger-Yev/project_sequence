@@ -12,7 +12,7 @@
 size = Vector2(184, 392)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42brd"]
-size = Vector2(142, 648)
+size = Vector2(85, 648)
 
 [sub_resource type="Gradient" id="Gradient_ia7or"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -25,8 +25,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8628472, 0.17534722)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak182"]
-size = Vector2(1153.5, 646.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqa4g"]
 
 [node name="main_office" type="Node2D" unique_id=1800851729]
 script = ExtResource("1_ia7or")
@@ -65,6 +64,7 @@ hframes = 2
 shape = SubResource("RectangleShape2D_yr2uf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=22339029]
+position = Vector2(5, -1)
 anchor_mode = 0
 zoom = Vector2(1.2, 1)
 
@@ -72,7 +72,7 @@ zoom = Vector2(1.2, 1)
 scale = Vector2(2, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Left_Look" unique_id=1165950565]
-position = Vector2(71, 324)
+position = Vector2(42.5, 324)
 shape = SubResource("RectangleShape2D_42brd")
 
 [node name="Right_Look" type="Area2D" parent="Camera2D" unique_id=1372152498]
@@ -80,7 +80,7 @@ position = Vector2(869, 0)
 scale = Vector2(2, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Right_Look" unique_id=1513813974]
-position = Vector2(71, 324)
+position = Vector2(97.5, 323)
 shape = SubResource("RectangleShape2D_42brd")
 
 [node name="cam_button" type="Button" parent="." unique_id=1049584256]
@@ -111,17 +111,20 @@ position = Vector2(575, 598)
 rotation = 3.1415927
 texture = ExtResource("3_2xuvg")
 
-[node name="Lights_Off" type="Area2D" parent="." unique_id=1571317325]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights_Off" unique_id=1707694162]
-position = Vector2(575.25, 323.875)
-shape = SubResource("RectangleShape2D_ak182")
-
 [node name="Zero" type="Sprite2D" parent="." unique_id=1413482961]
 visible = false
 modulate = Color(0.012617188, 0.012617188, 0.012617188, 0.30588236)
 position = Vector2(303, 392)
 texture = ExtResource("7_iqa4g")
+
+[node name="hacking_terminal_button" type="Sprite2D" parent="." unique_id=700191336]
+position = Vector2(36, 557)
+scale = Vector2(3, 9)
+
+[node name="button_area" type="Area2D" parent="hacking_terminal_button" unique_id=1772277188]
+
+[node name="button_hitbox" type="CollisionShape2D" parent="hacking_terminal_button/button_area" unique_id=1457187633]
+shape = SubResource("RectangleShape2D_iqa4g")
 
 [connection signal="timeout" from="Marker2D/Timer" to="Marker2D" method="_on_timer_timeout"]
 [connection signal="input_event" from="Doorswitch/Area2D" to="." method="_on_area_2d_input_event"]
@@ -130,4 +133,4 @@ texture = ExtResource("7_iqa4g")
 [connection signal="mouse_entered" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_entered"]
 [connection signal="mouse_exited" from="Camera2D/Right_Look" to="." method="_on_right_look_mouse_exited"]
 [connection signal="pressed" from="cam_button" to="." method="_on_button_pressed"]
-[connection signal="input_event" from="Lights_Off" to="." method="_on_lights_off_input_event"]
+[connection signal="mouse_entered" from="hacking_terminal_button/button_area" to="." method="_on_button_area_mouse_entered"]

@@ -5,10 +5,12 @@ extends Node2D
 @onready var light = $PointLight2D
 @onready var layout3 = $Layout3
 
-
 var parent
 var open_cams
 var run_once = false
+var hacking_terminal
+var terminal_cam
+
 var look_right = false
 var look_left = false
 var mouse_pos
@@ -18,24 +20,32 @@ var door_closed = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Click"): # moved from a function because why was this not in process?????
+		if lights_on:
+			light.visible = false
+			lights_off = true
+			lights_on = false
+		else:
+			light.visible = true
+			lights_on = true
+			lights_off = false
+		
 	if !run_once and itself.get_parent() != null:
 		parent = itself.get_parent()
-		open_cams = parent.get_child(1)
+		open_cams = parent.find_child("Open Cams")
+		hacking_terminal = parent.find_child("hacking_terminal")
+		terminal_cam = hacking_terminal.find_child("Camera2D")
 		run_once = true
+		
 	mouse_pos = get_global_mouse_position()
 	light.position = mouse_pos
 	if itself.visible: cam.make_current()
-	
 	
 	if lights_on:
 		if 99 > randi_range(0,100):
 			light.visible = true
 		else:
 			light.visible = false
-	
-	
-		
-	
 	
 	if cam.position.x <= 1:
 		pass
@@ -49,7 +59,6 @@ func _process(delta: float) -> void:
 		cam_button.global_position.x += 500*delta
 	else:
 		pass
-	
 	
 func _on_left_look_mouse_entered() -> void:
 	look_left = true
@@ -70,8 +79,15 @@ func _on_right_look_mouse_exited() -> void:
 func _on_button_pressed() -> void:
 	open_cams.visible = true
 	itself.visible = false
+	hacking_terminal.visible = false
 
+func _on_button_area_mouse_entered() -> void:
+	open_cams.visible = false
+	itself.visible = false
+	hacking_terminal.visible = true
+	terminal_cam.make_current()
 
+<<<<<<< HEAD
 func _on_lights_off_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Right Click"):
 		
@@ -88,6 +104,9 @@ func _on_lights_off_input_event(viewport: Node, event: InputEvent, shape_idx: in
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+=======
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+>>>>>>> 9d4dffd5ce6edc355a894d5f6c77da5870a19515
 	if event.is_action_pressed("Click"):
 		if !door_closed:
 			layout3.frame = 2
@@ -98,6 +117,3 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			door_closed = false
 			print(door_closed)
 		
-	
-	
-	

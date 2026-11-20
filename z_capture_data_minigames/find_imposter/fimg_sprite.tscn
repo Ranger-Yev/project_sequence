@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dr4ppd0bvotoc"]
 
-[ext_resource type="Script" uid="uid://hwcuch6a53oj" path="res://z_capture_data_minigames/Scripts/fimg_sprite.gd" id="1_0wo2a"]
+[ext_resource type="Script" uid="uid://hwcuch6a53oj" path="res://z_capture_data_minigames/find_imposter/Scripts/fimg_sprite.gd" id="1_0wo2a"]
 [ext_resource type="Texture2D" uid="uid://cul8kjp32rhnw" path="res://Art/icon.svg" id="2_5j74b"]
 
 [node name="FIMG_Sprite" type="Node2D" unique_id=2071656798]
