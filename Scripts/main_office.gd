@@ -20,7 +20,7 @@ var door_closed = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Click"): # moved from a function because why was this not in process?????
+	if Input.is_action_just_pressed("Right Click"): # moved from a function because why was this not in process?????
 		if lights_on:
 			light.visible = false
 			lights_off = true
@@ -88,7 +88,7 @@ func _on_button_area_mouse_entered() -> void:
 	terminal_cam.make_current()
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event.is_action_pressed("Click"):
+	if event.is_action_pressed("Left Click"):
 		if !door_closed:
 			layout3.frame = 2
 			door_closed = true
