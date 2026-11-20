@@ -9,9 +9,9 @@
 script = ExtResource("1_sbmf2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=652035923]
+enabled = false
 zoom = Vector2(1.921, 1.8)
 script = ExtResource("3_hg6ib")
-debug_mode = true
 
 [node name="haxor_terminal" type="Sprite2D" parent="." unique_id=499640777]
 texture = ExtResource("4_lymhn")

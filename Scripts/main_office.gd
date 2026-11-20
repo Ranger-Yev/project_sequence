@@ -44,7 +44,6 @@ func _process(delta: float) -> void:
 		
 	mouse_pos = get_global_mouse_position()
 	light.position = mouse_pos
-	if itself.visible: cam.make_current()
 	
 	if lights_on:
 		if 99 > randi_range(0,100):
@@ -52,29 +51,21 @@ func _process(delta: float) -> void:
 		else:
 			light.visible = false
 
-	if look_left and left_look.global_position.x > negative_x_limit.global_position.x:
-		print("Negative, ", left_look.global_position.x , " : Limit, ", negative_x_limit.global_position.x)
+	if look_left and left_look.global_position.x > negative_x_limit.global_position.x + 5.0:
+		#print("Negative, ", left_look.global_position.x , " : Limit, ", negative_x_limit.global_position.x)
 		cam.position.x -= 500*delta
 		cam_button.global_position.x -= 500*delta
 		
-	if look_right and right_look.global_position.x < positive_x_limit.global_position.x:
-		print("Positive, ", right_look.global_position.x , " : Limit, ", positive_x_limit.global_position.x)
+	if look_right and right_look.global_position.x < positive_x_limit.global_position.x - 60.0:
+		#print("Positive, ", right_look.global_position.x , " : Limit, ", positive_x_limit.global_position.x)
 		cam.position.x += 500*delta
 		cam_button.global_position.x += 500*delta
 	
 func _on_left_look_mouse_entered() -> void:
 	look_left = true
-	pass # Replace with function body.
-
-func _on_left_look_mouse_exited() -> void:
-	look_left = false
-	pass # Replace with function body.
 
 func _on_right_look_mouse_entered() -> void:
 	look_right = true
-
-func _on_right_look_mouse_exited() -> void:
-	look_right = false
 
 func _on_button_pressed() -> void:
 	open_cams.visible = true

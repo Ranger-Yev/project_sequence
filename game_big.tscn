@@ -23,7 +23,7 @@ _data = {
 script = ExtResource("1_7npu2")
 
 [node name="hacking_terminal" parent="." unique_id=1315691073 instance=ExtResource("4_4xpnr")]
-position = Vector2(580, 975)
+position = Vector2(580, 1200)
 
 [node name="main_office" parent="." unique_id=1800851729 instance=ExtResource("2_nvqw7")]
 position = Vector2(1, -1)

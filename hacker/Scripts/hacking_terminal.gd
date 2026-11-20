@@ -118,7 +118,7 @@ func set_data(new_data: float):
 		#test_phase = 0
 
 
-func _on_xbutton_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_xbutton_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("Left Click"):
 		camera.enabled = false
 		main_office_cam.enabled = true
