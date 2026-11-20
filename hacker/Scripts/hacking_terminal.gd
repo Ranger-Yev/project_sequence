@@ -103,3 +103,7 @@ func set_data(new_data: float):
 	#else:
 		#test_string = 'Secondary test string'
 		#test_phase = 0
+
+
+func _on_xbutton_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	pass # Replace with function body.
