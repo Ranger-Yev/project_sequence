@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 func set_color(index: int) -> void:
 	itself.modulate = color_array[index]
 
-func set_limits(new_negative_limit, new_positive_limit) -> void:
+func set_limits(new_negative_limit: float, new_positive_limit: float) -> void:
 	negative_limit = new_negative_limit
 	positive_limit = new_positive_limit
 	

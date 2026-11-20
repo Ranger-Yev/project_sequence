@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5n8y6nht8f7q" path="res://Scripts/game_big.gd" id="1_7npu2"]
 [ext_resource type="PackedScene" uid="uid://dgbifwr0c2qmq" path="res://main_office.tscn" id="2_nvqw7"]
 [ext_resource type="PackedScene" uid="uid://dhpafu1iu5a6a" path="res://cams.tscn" id="3_ehmcx"]
-[ext_resource type="PackedScene" uid="uid://cokatdy3b2lyp" path="res://hacking_terminal.tscn" id="4_4xpnr"]
+[ext_resource type="PackedScene" uid="uid://cokatdy3b2lyp" path="res://hacker/hacking_terminal.tscn" id="4_4xpnr"]
 
 [sub_resource type="Animation" id="Animation_ehmcx"]
 resource_name = "JUMPSCARE!!!"
@@ -22,13 +22,13 @@ _data = {
 [node name="Game_Big" type="Node2D" unique_id=1381105428]
 script = ExtResource("1_7npu2")
 
+[node name="hacking_terminal" parent="." unique_id=1315691073 instance=ExtResource("4_4xpnr")]
+position = Vector2(580, 975)
+
 [node name="main_office" parent="." unique_id=1800851729 instance=ExtResource("2_nvqw7")]
 position = Vector2(1, -1)
 
 [node name="Open Cams" parent="." unique_id=351681203 instance=ExtResource("3_ehmcx")]
-visible = false
-
-[node name="hacking_terminal" parent="." unique_id=1315691073 instance=ExtResource("4_4xpnr")]
 visible = false
 
 [node name="Night Timer" type="Timer" parent="." unique_id=1779480743]

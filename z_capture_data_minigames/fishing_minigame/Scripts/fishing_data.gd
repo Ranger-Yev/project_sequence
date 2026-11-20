@@ -8,7 +8,7 @@ extends Node2D
 @onready var row_5 = $rows/row_5
 @onready var rod = $data_rod
 
-var fish_of_data_scene: PackedScene = preload("res://z_capture_data_minigames/data_fish.tscn")
+var fish_of_data_scene: PackedScene = preload("res://z_capture_data_minigames/fishing_minigame/data_fish.tscn")
 
 # 5 rows, each row has less 'fish' in descending order. 
 # 1/5 row = 30 - 35 fish
@@ -29,19 +29,20 @@ var fca = [] # fish count array
 var stop_all = false
 var value = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !do_once:
-		row_1_fish_count = randi_range(17,20)
-		row_2_fish_count = randi_range(12,17)
-		row_3_fish_count = randi_range(7,10)
-		row_4_fish_count = randi_range(2,7)
+		rod.set_limit(520.0)
+		row_1_fish_count = randi_range(7,12)
+		row_2_fish_count = randi_range(6,10)
+		row_3_fish_count = randi_range(2,4)
+		row_4_fish_count = randi_range(1,3)
 		row_5_fish_count = 1
 		fca = [row_1_fish_count, row_2_fish_count, row_3_fish_count, row_4_fish_count, row_5_fish_count]
 		#print(fca)
 		do_once = 1
 		for i in range(0, fca[0]):
 			var new_data_fish = fish_of_data_scene.instantiate() as Node2D
-			new_data_fish.set_limits(0, 950)
+			new_data_fish.set_limits(0.0, 950.0)
 			new_data_fish.add_speed(randf_range(-50, 50.0))
 			new_data_fish.global_position = Vector2(randf_range(0.0,1152.0), row_1.global_position.y)
 			row_1.add_child(new_data_fish)

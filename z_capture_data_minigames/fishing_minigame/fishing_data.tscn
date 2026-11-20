@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://baxv7ohd38smx"]
 
-[ext_resource type="Script" uid="uid://dx0134ioypjcy" path="res://z_capture_data_minigames/Scripts/fishing_data.gd" id="1_8wysi"]
-[ext_resource type="PackedScene" uid="uid://dn8dtk246lnid" path="res://z_capture_data_minigames/data_rod.tscn" id="2_q1pve"]
+[ext_resource type="Script" uid="uid://dx0134ioypjcy" path="res://z_capture_data_minigames/fishing_minigame/Scripts/fishing_data.gd" id="1_8wysi"]
+[ext_resource type="PackedScene" uid="uid://dn8dtk246lnid" path="res://z_capture_data_minigames/fishing_minigame/data_rod.tscn" id="2_q1pve"]
 
 [node name="Fishing_Data" type="Node2D" unique_id=1692740793]
 script = ExtResource("1_8wysi")

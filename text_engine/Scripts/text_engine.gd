@@ -1,6 +1,6 @@
 extends Node2D
 @onready var letters = $letters
-var letter: PackedScene = preload("res://letter.tscn")
+var letter: PackedScene = preload("res://text_engine/letter.tscn")
 var alphabet_t = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p",
 "q","r","s","t","u","v","w","x","y","z","!","?","*sf*","*ff*"," "]
 

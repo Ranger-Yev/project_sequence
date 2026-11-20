@@ -20,10 +20,9 @@ var systems_running = 0 # number of systems currently running - for the surge/br
 var game_over = false
 var run_once = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if night_timer.is_stopped():
 		is_night_survived = true
-	
 	
 	if !run_once:
 		run_once += 1
