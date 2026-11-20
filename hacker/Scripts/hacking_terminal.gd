@@ -116,3 +116,11 @@ func set_data(new_data: float):
 	#else:
 		#test_string = 'Secondary test string'
 		#test_phase = 0
+
+
+func _on_xbutton_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("Left Click"):
+		camera.enabled = false
+		main_office_cam.enabled = true
+		main_office_cam.make_current()
+	pass # Replace with function body.
