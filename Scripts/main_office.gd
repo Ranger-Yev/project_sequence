@@ -4,6 +4,9 @@ extends Node2D
 @onready var itself = $"." 
 @onready var light = $PointLight2D
 @onready var layout3 = $Layout3
+@onready var negative_x_limit = $negative_x_limit
+@onready var positive_x_limit = $postive_x_limit
+
 
 var parent
 var open_cams
@@ -53,7 +56,7 @@ func _process(delta: float) -> void:
 		cam.position.x -= 500*delta
 		cam_button.global_position.x -= 500*delta
 		
-	if look_right and cam.global_position.x > 3:
+	if look_right and cam.global_position.x > 1:
 		cam.position.x += 500*delta
 		cam_button.global_position.x += 500*delta
 	
@@ -67,11 +70,9 @@ func _on_left_look_mouse_exited() -> void:
 
 func _on_right_look_mouse_entered() -> void:
 	look_right = true
-	pass # Replace with function body.
 
 func _on_right_look_mouse_exited() -> void:
 	look_right = false
-	pass # Replace with function body.
 
 func _on_button_pressed() -> void:
 	open_cams.visible = true
@@ -79,16 +80,18 @@ func _on_button_pressed() -> void:
 	hacking_terminal.visible = false
 
 func _on_button_area_mouse_entered() -> void:
+	terminal_cam.enabled = true
+	cam.enabled = false
 	terminal_cam.make_current()
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("Left Click"):
 		if !door_closed:
 			layout3.frame = 2
 			door_closed = true
 			print(door_closed)
 		else: 
-			layout3.frame = 0
+			layout3.frame = 1
 			door_closed = false
 			print(door_closed)
 		
