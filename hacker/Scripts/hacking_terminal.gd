@@ -4,6 +4,7 @@ extends Node2D
 
 var hacker_scene: PackedScene = preload("res://hacker/hacker.tscn")
 
+@onready var itself = $"."
 @onready var hackers = $hackers
 @onready var hacker_spawner_timer = $hacker_spawn_timer
 @onready var letters = $text_engine/letters
@@ -22,13 +23,25 @@ var num_of_hackers = 0
 var has_hacker = false
 var hacker_alarm_color = Color(0.693, 0.027, 0.085, 1.0)
 
-
+var run_once = false
+var parent
+var main_office
+var main_office_cam
+var test
 #@onready var test_phase_timer = $test_switcher
 #var test_string = "guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> NEW BREACH DETECTED&guest@tinkle-tboard-t415e-wifi1:~$ hackerAlarm -> found x intruders!!!&"
-#var frame = 0
 #var test_phase = 0
 
 func _process(_delta: float) -> void:
+	if !run_once and itself.parent != null:
+		test = $"./../main_office/Camera2D"
+		parent = itself.get_parent()
+		if parent.name == "Game_Big":
+			main_office = parent.find("main_office")
+			main_office_cam = main_office.find("Camera2D")
+		run_once = true
+		print(test.name)
+	
 	#print(hackers.get_child_count() < 4)
 	#print(data)
 	text_engine.clear_all_loaded()

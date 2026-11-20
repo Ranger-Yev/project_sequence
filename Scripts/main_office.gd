@@ -49,16 +49,13 @@ func _process(delta: float) -> void:
 	
 	if cam.position.x <= 1:
 		pass
-	elif look_left:
+	elif look_left and cam.global_position.x < 1:
 		cam.position.x -= 500*delta
 		cam_button.global_position.x -= 500*delta
-	if cam.position.x >= 96:
-		pass
-	elif look_right:
+		
+	if look_right and cam.global_position.x > 3:
 		cam.position.x += 500*delta
 		cam_button.global_position.x += 500*delta
-	else:
-		pass
 	
 func _on_left_look_mouse_entered() -> void:
 	look_left = true
@@ -82,9 +79,6 @@ func _on_button_pressed() -> void:
 	hacking_terminal.visible = false
 
 func _on_button_area_mouse_entered() -> void:
-	open_cams.visible = false
-	itself.visible = false
-	hacking_terminal.visible = true
 	terminal_cam.make_current()
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
