@@ -81,14 +81,14 @@ func _on_button_pressed() -> void:
 func _on_button_area_mouse_entered() -> void:
 	terminal_cam.make_current()
 
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Left Click"):
 		if !door_closed:
 			layout3.frame = 2
 			door_closed = true
 			print(door_closed)
 		else: 
-			layout3.frame = 1
+			layout3.frame = 0
 			door_closed = false
 			print(door_closed)
 		
