@@ -5,8 +5,9 @@ extends Node2D
 @onready var light = $PointLight2D
 @onready var layout3 = $Layout3
 @onready var negative_x_limit = $negative_x_limit
-@onready var positive_x_limit = $postive_x_limit
-
+@onready var positive_x_limit = $positive_x_limit
+@onready var left_look = $"Camera2D/Left_Look" 
+@onready var right_look = $"Camera2D/Right_Look" 
 
 var parent
 var open_cams
@@ -38,6 +39,7 @@ func _process(delta: float) -> void:
 		open_cams = parent.find_child("Open Cams")
 		hacking_terminal = parent.find_child("hacking_terminal")
 		terminal_cam = hacking_terminal.find_child("Camera2D")
+		
 		run_once = true
 		
 	mouse_pos = get_global_mouse_position()
@@ -49,14 +51,14 @@ func _process(delta: float) -> void:
 			light.visible = true
 		else:
 			light.visible = false
-	
-	if cam.position.x <= 1:
-		pass
-	elif look_left and cam.global_position.x < 1:
+
+	if look_left and left_look.global_position.x > negative_x_limit.global_position.x:
+		print("Negative, ", left_look.global_position.x , " : Limit, ", negative_x_limit.global_position.x)
 		cam.position.x -= 500*delta
 		cam_button.global_position.x -= 500*delta
 		
-	if look_right and cam.global_position.x > 1:
+	if look_right and right_look.global_position.x < positive_x_limit.global_position.x:
+		print("Positive, ", right_look.global_position.x , " : Limit, ", positive_x_limit.global_position.x)
 		cam.position.x += 500*delta
 		cam_button.global_position.x += 500*delta
 	

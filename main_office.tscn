@@ -113,35 +113,34 @@ scale = Vector2(4, 4)
 position = Vector2(-17.75, 28.25)
 shape = SubResource("RectangleShape2D_iqa4g")
 
-[node name="positive_x_limit" type="Marker2D" parent="." unique_id=880826893]
-position = Vector2(0, 333)
+[node name="negative_x_limit" type="Marker2D" parent="." unique_id=880826893]
+position = Vector2(0, 324)
 
-[node name="negative_x_limit" type="Marker2D" parent="." unique_id=1418016995]
-position = Vector2(1152, 217)
+[node name="positive_x_limit" type="Marker2D" parent="." unique_id=1418016995]
+position = Vector2(1152, 324)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=22339029]
-position = Vector2(-45, 0)
+position = Vector2(219, 0)
 anchor_mode = 0
 zoom = Vector2(1.5, 1)
 
 [node name="Left_Look" type="Area2D" parent="Camera2D" unique_id=1705615288]
-position = Vector2(-178, 0)
 scale = Vector2(2, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Left_Look" unique_id=1165950565]
-position = Vector2(89.25, 324)
+position = Vector2(0, 324)
 shape = SubResource("RectangleShape2D_42brd")
 
 [node name="Right_Look" type="Area2D" parent="Camera2D" unique_id=1372152498]
-position = Vector2(691, 0)
+position = Vector2(768, 0)
 scale = Vector2(2, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Right_Look" unique_id=1513813974]
-position = Vector2(38.5, 323)
+position = Vector2(-0.5, 324)
 shape = SubResource("RectangleShape2D_42brd")
 
 [node name="camera_center" type="Marker2D" parent="Camera2D" unique_id=16312020]
-position = Vector2(10, 324)
+position = Vector2(384, 324)
 
 [connection signal="timeout" from="Marker2D/Timer" to="Marker2D" method="_on_timer_timeout"]
 [connection signal="input_event" from="Doorswitch/Area2D" to="." method="_on_area_2d_input_event"]
